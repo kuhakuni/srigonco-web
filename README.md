@@ -2,7 +2,7 @@
 
 Cara menjalankan project di localhost:
 
-> (pastikan telah menginstall php, composer dan npm)
+> pastikan telah menginstall php, composer dan npm
 
 -   Install vendor
     ```sh
