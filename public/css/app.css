@@ -248,10 +248,10 @@ a:hover {
 }
 .copyright {
     position: absolute;
-    background: url("../img/bg-footer-login.svg");
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
 }
 /* Alerts */
 .alert-heading {

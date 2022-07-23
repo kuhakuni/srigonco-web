@@ -1,19 +1,17 @@
 @extends('layouts.admin.template')
 
 @section('main')
-<main class="h-100">
-    <div class="container">
-      <section class="section d-flex flex-column align-items-center justify-content-center py-4">
+<main>
+    <div class="container d-flex flex-column">
+      <section class="section min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
               <div class="d-flex justify-content-center">
                 <div class="logo d-flex align-items-center w-auto">
                   <p>Designed by KKN FILKOM UB 2022</p>
                 </div>
               </div><!-- End Logo -->
-
               <div class="card mb-3">
 
                 <div class="card-body">
@@ -64,16 +62,14 @@
 
                 </div>
               </div>
-
               <div class="credits">
                <i class="bi bi-arrow-left"></i><a href="/">  Kembali ke beranda</a>
               </div>
-
             </div>
           </div>
         </div>
-        {{-- <p class="copyright">@Copyright 2022 Desa Srigonco</p> --}}
       </section>
+      <p class="copyright" >&copy; 2022 Desa Srigonco</p>
     </div>
   </main>
  
