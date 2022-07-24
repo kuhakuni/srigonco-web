@@ -18,6 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('admin');
+    return view('pages.admin.login');
 });
-
