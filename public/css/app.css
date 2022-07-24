@@ -25,6 +25,25 @@ a:hover {
     text-decoration: underline;
 }
 
+/* NAVBAR */
+.navbar-brand{
+    font-size: 16px;
+    font-weight: 600;
+}
+.navbar-brand:hover{
+    text-decoration: none;
+}
+.nav-link{
+    font-size: 18px;
+    font-weight: 400;
+}
+.nav-link:hover{
+    text-decoration: none;
+}
+
+/* END OF NAVBAR  */
+
+
 /*--------------------------------------------------------------
   # Main
   --------------------------------------------------------------*/
@@ -1093,4 +1112,36 @@ a:hover {
     text-align: center;
     font-size: 13px;
     color: #012970;
+}
+
+/* FOOTER WEB  */
+footer{
+    background-color: var(--color-secondary);
+}
+
+footer .saran{
+    border: none;
+    border-radius: 8px;
+    /* text-indent: 20px; */
+    padding: 10px;
+}
+footer .btn {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--color-primary);
+    padding: 10px 0;
+    border: none;
+    border-radius: 50px;
+    transition: background-color ease-in-out 0.2s;
+}
+footer .btn:hover {
+    background-color: var(--hover-color-primary);
+}
+
+footer hr{
+    opacity: 1;
+    border: 1px solid #6E9E54;
+}
+footer .bi{
+    color: var(--color-primary);
 }
