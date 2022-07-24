@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('pages.admin.login');
 });
+Route::get('/berita', function () {
+    return view('pages.web.berita');
+});
