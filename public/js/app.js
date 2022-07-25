@@ -1,3 +1,5 @@
+// const { functions } = require("lodash");
+
 (function () {
     "use strict";
 
@@ -337,3 +339,19 @@
         }, 200);
     }
 })();
+
+
+function pageactive() {
+    var pathArray = window.location.pathname.split('/');
+    var slug = pathArray[1];
+    var nav_link = document.querySelectorAll(".nav-link");
+    nav_link.forEach(element => {
+        // console.log(element.textContent.toLowerCase());
+        // console.log(slug);
+        if (element.textContent.toLowerCase() == slug) {
+            element.classList.add("active");
+        } 
+    });
+}
+
+pageactive();

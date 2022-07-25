@@ -23,3 +23,12 @@ Route::get('/login', function () {
 Route::get('/berita', function () {
     return view('pages.web.berita');
 });
+Route::get('/umkm', function () {
+    return view('pages.web.umkm');
+});
+Route::get('/profil', function () {
+    return view('pages.web.profil');
+});
+Route::get('/administrasi', function () {
+    return view('pages.web.administrasi');
+});
