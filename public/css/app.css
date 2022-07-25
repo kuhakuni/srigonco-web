@@ -1,3 +1,5 @@
+/* * app.css buat halaman administrator */
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -25,13 +27,13 @@ a:hover {
     text-decoration: underline;
 }
 
-.bg-primary{
+.bg-primary {
     background-color: var(--color-primary) !important;
 }
-.border-r-15{
+.border-r-15 {
     border-radius: 15px;
 }
-.border-r-10{
+.border-r-10 {
     border-radius: 10px;
 }
 /* NAVBAR */
@@ -51,20 +53,6 @@ a:hover {
 }
 
 /* END OF NAVBAR  */
-
-/*--------------------------------------------------------------
-  # Main
-  --------------------------------------------------------------*/
-#main {
-    margin-top: 60px;
-    padding: 20px 30px;
-    transition: all 0.3s;
-}
-@media (max-width: 1199px) {
-    #main {
-        padding: 20px;
-    }
-}
 
 /*--------------------------------------------------------------
   # Page Title
@@ -109,52 +97,50 @@ a:hover {
     opacity: 1;
 }
 
-.header-img{
+.header-img {
     background-image: url("../img/header_umkm.png");
     background-size: cover;
     background-position: center;
     height: 50vh;
     color: #ffffff;
 }
-.header-img h1, 
-.header-img h2{
+.header-img h1,
+.header-img h2 {
     font-weight: 700;
-} 
-.header-img h1{
-    
+}
+.header-img h1 {
     font-size: 48px;
 }
-.header-img h2{
+.header-img h2 {
     font-size: 40px;
 }
 
-.map-btn{
+.map-btn {
     background-color: var(--color-primary);
     border-radius: 10px;
     font-size: 20px;
     text-decoration: none;
 }
-.map-btn:hover{
+.map-btn:hover {
     background-color: var(--hover-color-primary);
     text-decoration: none;
 }
-.card-title{
+.card-title {
     font-weight: 600;
 }
-.wa:hover{
+.wa:hover {
     text-decoration: none;
 }
 
-.news-header{
+.news-header {
     background-size: cover;
     background-position: center;
     height: 50vh;
     color: #ffffff;
 }
-.fs-12p{
+.fs-12p {
     font-size: 12px !important;
 }
-
 
 /*--------------------------------------------------------------
   # Override some default Bootstrap stylings
@@ -1169,43 +1155,7 @@ a:hover {
     color: #012970;
 }
 
-/* FOOTER WEB  */
-footer {
-    background-color: var(--color-secondary);
-}
 
-footer .saran {
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-}
-footer .btn {
-    font-size: 16px;
-    font-weight: 500;
-    background-color: var(--color-primary);
-    padding: 10px 0;
-    border: none;
-    border-radius: 50px;
-    transition: background-color ease-in-out 0.2s;
-}
-footer .btn:hover {
-    background-color: var(--hover-color-primary);
-}
-
-hr{
-    opacity: 1;
-}
-footer .bi {
-    color: var(--color-primary);
-}
-
-.ic-down{
-    background-color: #4D787B;
-}
-
-/* END OF FOOTER WEB  */
-
-
-.bottom-footer > * {
-    margin: 1rem 0.1 rem !important;
+.ic-down {
+    background-color: #4d787b;
 }
