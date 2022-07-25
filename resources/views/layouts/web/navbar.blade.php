@@ -1,6 +1,6 @@
 <!-- ========= NAVBAR ============ -->
-  <nav class="mx-4 navbar navbar-expand-lg navbar-light ">
-  <div class="container-fluid">
+  <nav class="navbar position-sticky top-0 bg-white navbar-expand-lg navbar-light">
+  <div class="container"> 
       <a class="navbar-brand d-flex flex-grid justify-content-center align-content-center gap-2" href="#">
         <img src="{{ asset('img/Logo_kab_malang.png') }}" alt="Missing Logo" width="44" height="57 ">
         <h5 class="my-auto text-center">Desa Srigonco</h5>        
@@ -10,11 +10,11 @@
     </button>
     <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto me-4 gap-3">
-        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-        <a class="nav-link" href="#">Profil</a>
-        <a class="nav-link" href="#">Berita</a>
-        <a class="nav-link" href="#">Pariwisata</a>
-        <a class="nav-link" href="#">UMKM</a>
+        <a class="nav-link active" aria-current="page" href="/">Beranda</a>
+        <a class="nav-link" href="/profil">Profil</a>
+        <a class="nav-link" href="/berita">Berita</a>
+        <a class="nav-link" href="/pariwisata">Pariwisata</a>
+        <a class="nav-link" href="/umkm">UMKM</a>
       </div>
     </div>
   </div>

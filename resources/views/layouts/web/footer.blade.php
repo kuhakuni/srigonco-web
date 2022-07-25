@@ -1,43 +1,74 @@
 <!-- ===== FOOTER ===== -->
 <footer class="p-4">
-    <section class="col-10 mx-auto">
-        <h4><strong>KRITIK DAN SARAN</strong></h4>
-        <form class="d-flex flex-column mx-auto my-3" action="post">
-            <div class="d-flex flex-lg-row flex-column justify-content-between">
-                <input class="saran col-lg-5 col-12 mb-3" type="text" name="nama" id="" placeholder="Nama Pengirim">
-                <input class="saran col-lg-5 col-12 mb-3" type="email" name="email" id="" placeholder="Email Pengirim">
+    <div class="container">
+        <h4 class="fw-semibold text-black">KRITIK DAN SARAN</h4>
+        <form class="row g-3" action="post">
+            <div class="col-md-6">
+                <input
+                    class="form-control"
+                    type="text"
+                    name="nama"
+                    id=""
+                    placeholder="Nama Pengirim"
+                />
             </div>
-            <textarea class="saran mx-auto col-12" name="pesan" id="" cols="30" rows="2"
-                placeholder="Tulis pesan disini"></textarea>
-            <input class="btn col-12 mx-auto mt-3 text-black" type="submit" value="KIRIM">
-        </form>
-        <hr>
-        <div class="d-flex flex-wrap gap-3 justify-content-lg-between justify-content-">
-            <img class=" col-md-2 col-3 h-100 img-fluid" src="{{ asset('img/Logo_kab_malang.png') }}" alt="Missing Logo">
-            <div class="col-md-3 col-8">
-                <p>MAPS</p>
+            <div class="col-md-6">
+                <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    id=""
+                    placeholder="Email Pengirim"
+                />
             </div>
-            <div class="col-md-4 col-7">
-                <h6 class="mb-2"><strong>HUBUNGI KAMI</strong></h6>
-                <p class="fs-6">Jl. Bale Kambang No.17, Dusun Krajan, Desa Srigonco, Kecamatan Bantur, Kabupaten Malang
-                    65179</p>
-                    <a href="#" class=""> <i class="bi bi-telephone-fill fs-4 me-2"></i>0341</a>
-                    <br>
-                    <a href="#" class=""> <i class="bi bi-envelope-fill fs-4 me-2"></i>desa-srigonco@malangkab.go.id</a>
-            </div>
-            <div class="col-md-2 col-4">
-                <h6 class="mb-2"><strong>Ketentuan</strong></h6>
-                <a href="#">Terms & Condition</a>
-                <a href="#">Privacy Policy</a>
-                <h6 class="mt-4 mb-2"><strong>Social Media</strong></h6>
-                <div class="d-flex justify-content-between">
-                    <a href="#"> <i class="bi bi-facebook fs-3"></i></a>
-                    <a href="#"> <i class="bi bi-instagram fs-3"></i></a>
-                    <a href="#"> <i class="bi bi-twitter fs-3"></i></a>
-                </div>
+            <div class="col-12">
+                <textarea
+                    class="form-control"
+                    name="pesan"
+                    cols="30"
+                    rows="2"
+                    placeholder="Tulis pesan disini"
+                ></textarea>
             </div>
 
+            <button class="btn col-12 mx-auto mt-3 text-black" type="submit">
+                Kirim
+            </button>
+        </form>
+        <div class="row mt-4 bottom-footer">
+            <div class="col-md-2 my-3 d-flex justify-content-center align-items-center">
+                <img
+                    class="img-fluid"
+                    width="200"
+                    src="{{ asset('img/Logo_kab_malang.png') }}"
+                    alt="Missing Logo"
+                />
+            </div>  
+            <div class="col-md-5 my-3">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15790.29055962944!2d112.562482!3d-8.345189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x97672642923f6b89!2sVillage%20Head%20Office%20Srigonco!5e0!3m2!1sen!2sus!4v1658754842292!5m2!1sen!2sus"
+                    style="border: 0; width: 100%; height: 100%"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+            <div class="col-md-5 my-3">
+                <h6 class="fw-semibold text-center">Hubungi Kami</h6>
+                <p class="fs-6">
+                    Jl. Bale Kambang No.17, Dusun Krajan, Desa Srigonco,
+                    Kecamatan Bantur, Kabupaten Malang 65179
+                </p>
+                    <p>Phone : 0341</p>
+                    <p>Email : pemerintahdesasrigonco@gmail.com</p>
+                    <h6 class="mt-4 mb-2 font-semibold text-center">Sosial Media</h6>
+                    <div class="d-flex justify-content-evenly">
+                        <a href="#"> <i class="bi bi-facebook fs-3"></i></a>
+                        <a href="#"> <i class="bi bi-instagram fs-3"></i></a>
+                        <a href="#"> <i class="bi bi-twitter fs-3"></i></a>
+                    </div>
+            </div>
         </div>
-    </section>
+    </div>
 </footer>
 <!-- ===== END OF FOOTER ===== -->
