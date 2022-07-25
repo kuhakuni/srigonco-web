@@ -35,23 +35,22 @@ a:hover {
     border-radius: 10px;
 }
 /* NAVBAR */
-.navbar-brand{
+.navbar-brand {
     font-size: 16px;
     font-weight: 600;
 }
-.navbar-brand:hover{
+.navbar-brand:hover {
     text-decoration: none;
 }
-.nav-link{
+.nav-link {
     font-size: 18px;
     font-weight: 400;
 }
-.nav-link:hover{
+.nav-link:hover {
     text-decoration: none;
 }
 
 /* END OF NAVBAR  */
-
 
 /*--------------------------------------------------------------
   # Main
@@ -1171,14 +1170,13 @@ a:hover {
 }
 
 /* FOOTER WEB  */
-footer{
+footer {
     background-color: var(--color-secondary);
 }
 
-footer .saran{
+footer .saran {
     border: none;
     border-radius: 8px;
-    /* text-indent: 20px; */
     padding: 10px;
 }
 footer .btn {
@@ -1196,9 +1194,8 @@ footer .btn:hover {
 
 hr{
     opacity: 1;
-    border: 1px solid #6E9E54;
 }
-footer .bi{
+footer .bi {
     color: var(--color-primary);
 }
 
@@ -1207,3 +1204,8 @@ footer .bi{
 }
 
 /* END OF FOOTER WEB  */
+
+
+.bottom-footer > * {
+    margin: 1rem 0.1 rem !important;
+}
