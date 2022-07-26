@@ -35,6 +35,14 @@ a:hover {
 .border-r-10 {
     border-radius: 10px;
 }
+.wa:hover {
+    text-decoration: none;
+    color: var(--hover-color-primary);
+}
+.ic-down {
+    background-color: #4d787b;
+}
+
 
 /* NAVBAR */
 .navbar {
@@ -150,3 +158,49 @@ footer .bi {
 .bottom-footer > * {
     margin: 1rem 0.1 rem !important;
 }
+.news-header {
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    color: #ffffff;
+}
+.fs-12p {
+    font-size: 12px !important;
+}
+
+.header-img {
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    color: #ffffff;
+}
+.header-img h1,
+.header-img h2 {
+    font-weight: 700;
+}
+.header-img h1 {
+    font-size: 48px;
+}
+.header-img h2 {
+    font-size: 40px;
+}
+
+/* ---------------------- PARIWISATA & UMKM PAGE ------------------------- */
+.map-btn {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    font-size: 20px;
+    text-decoration: none;
+}
+.map-btn:hover {
+    background-color: var(--hover-color-primary);
+    text-decoration: none;
+}
+/* ---------------------- END OF PARIWISATA & UMKM PAGE ------------------------- */
+
+
+/* ---------------------- END OF BERITA PAGE ------------------------- */
+.card-title {
+    font-weight: 600;
+}
+/* ---------------------- END OF BERITA PAGE ------------------------- */

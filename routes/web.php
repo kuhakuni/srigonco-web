@@ -26,6 +26,9 @@ Route::get('/berita', function () {
 Route::get('/umkm', function () {
     return view('pages.web.umkm', ["route"=>"umkm"]);
 });
+Route::get('/pariwisata', function () {
+    return view('pages.web.pariwisata', ["route"=>"pariwisata"]);
+});
 Route::get('/profil', function () {
     return view('pages.web.profil', ["route"=>"profil"]);
 });

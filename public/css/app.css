@@ -52,6 +52,7 @@ a:hover {
     text-decoration: none;
 }
 
+
 /* END OF NAVBAR  */
 
 /*--------------------------------------------------------------
@@ -97,50 +98,7 @@ a:hover {
     opacity: 1;
 }
 
-.header-img {
-    background-image: url("../img/header_umkm.png");
-    background-size: cover;
-    background-position: center;
-    height: 50vh;
-    color: #ffffff;
-}
-.header-img h1,
-.header-img h2 {
-    font-weight: 700;
-}
-.header-img h1 {
-    font-size: 48px;
-}
-.header-img h2 {
-    font-size: 40px;
-}
 
-.map-btn {
-    background-color: var(--color-primary);
-    border-radius: 10px;
-    font-size: 20px;
-    text-decoration: none;
-}
-.map-btn:hover {
-    background-color: var(--hover-color-primary);
-    text-decoration: none;
-}
-.card-title {
-    font-weight: 600;
-}
-.wa:hover {
-    text-decoration: none;
-}
-
-.news-header {
-    background-size: cover;
-    background-position: center;
-    height: 50vh;
-    color: #ffffff;
-}
-.fs-12p {
-    font-size: 12px !important;
-}
 
 /*--------------------------------------------------------------
   # Override some default Bootstrap stylings
@@ -1156,6 +1114,3 @@ a:hover {
 }
 
 
-.ic-down {
-    background-color: #4d787b;
-}
