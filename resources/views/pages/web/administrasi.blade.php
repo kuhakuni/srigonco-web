@@ -20,14 +20,17 @@
                 <p><em>Update terakhir : 9 Juli 2022</em></p>
                 <a class="fw-bold rounded-3 bg-primary ps-2 text-decoration-none" href="" target="_blank">Unduh <img class="ic-down p-2 rounded-3" src="{{ asset('img/ic_download.svg') }}" alt=""></a>
               </div>
-          </div>
+            </div>
           <div class="row">
             <div class="col-6">
-              <img src="{{ asset('img/siskeudes.png') }}" alt="">
+              <img class="w-100 h-100" src="{{ asset('img/siskeudes.png') }}" alt="">
             </div>
             <div class="col-6">
               <h3 class="fw-bold text-black">Infografis APBDes 2022 Desa Srigonco Kecamatan Bantur</h3>
               <h4>Anggaran Pendapatan dan Belanja Desa Pemerintah Srigonco Tahun Anggaran 2022</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit proin bibendum sem amet adipiscing. Lorem diam eros feugiat a imperdiet semper id pulvinar. Diam, pharetra morbi facilisis lectus. </p>
+              <a class="fw-bold rounded-3 bg-primary ps-2 text-decoration-none" href="" target="_blank">Unduh <img class="ic-down p-2 rounded-3" src="{{ asset('img/ic_download.svg') }}" alt=""></a>
+
             </div>
           </div>
         </div>

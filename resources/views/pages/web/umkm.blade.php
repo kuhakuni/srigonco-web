@@ -8,7 +8,7 @@
         </div>
         <div class="container mt-4">
             <div class="row justify-content-center">
-                <div class="card col-12 d-flex flex-md-row flex-column p-0 row">
+                <div class="card col-12 d-flex flex-md-row flex-column p-0">
                     <img class=" col-12 col-md-4 w-25 h-100 p-0" src="{{ asset('img/batik.png') }}" alt="Missing photo">
                     <div class="col-8 content m-3">
                         <div class="d-flex justify-content-between">
