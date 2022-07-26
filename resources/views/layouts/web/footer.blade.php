@@ -2,7 +2,7 @@
 <footer class="p-4">
     <div class="container">
         <h4 class="fw-semibold text-black">KRITIK DAN SARAN</h4>
-        <form class="row g-3" action="post">
+        <form class="row g-3 needs-validation" action="post">
             <div class="col-md-6">
                 <input
                     class="form-control"
@@ -10,6 +10,7 @@
                     name="nama"
                     id=""
                     placeholder="Nama Pengirim"
+                    required
                 />
             </div>
             <div class="col-md-6">
@@ -19,6 +20,7 @@
                     name="email"
                     id=""
                     placeholder="Email Pengirim"
+                    required
                 />
             </div>
             <div class="col-12">
@@ -26,8 +28,10 @@
                     class="form-control"
                     name="pesan"
                     cols="30"
-                    rows="2"
+                    rows="5"
+                    style="resize: none"
                     placeholder="Tulis pesan disini"
+                    required
                 ></textarea>
             </div>
 

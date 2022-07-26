@@ -14,21 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.web.homepage', ["route"=>"/"]);
 });
 
 Route::get('/login', function () {
-    return view('pages.admin.login');
+    return view('pages.admin.login', ["route"=>"login"]);
 });
 Route::get('/berita', function () {
-    return view('pages.web.berita');
+    return view('pages.web.berita', ["route"=>"berita"]);
 });
 Route::get('/umkm', function () {
-    return view('pages.web.umkm');
+    return view('pages.web.umkm', ["route"=>"umkm"]);
 });
 Route::get('/profil', function () {
-    return view('pages.web.profil');
+    return view('pages.web.profil', ["route"=>"profil"]);
 });
 Route::get('/administrasi', function () {
-    return view('pages.web.administrasi');
+    return view('pages.web.administrasi', ["route"=>"administrasi"]);
 });
