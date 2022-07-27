@@ -35,7 +35,6 @@
  <script src="{{ asset("vendor/quill/quill.min.js") }}"></script>
  <script src="{{ asset("vendor/simple-datatables/simple-datatables.js") }}"></script>
  <script src="{{ asset("vendor/tinymce/tinymce.min.js") }}"></script>
- <script src="{{ asset("vendor/php-email-form/validate.js") }}"></script>
 
  <!-- Template Main JS File -->
  <script src="{{ asset("js/app.js") }}"></script>
