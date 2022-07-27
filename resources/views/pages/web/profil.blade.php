@@ -37,17 +37,18 @@
             <div class="row">
                 <div class="border-r-15 bg-primary col-12 p-4 mt-4">
                     <h3 class="text-center text-black">Struktur Desa Srigonco</h3>
+                    <img class="w-100" src="{{ asset('img/struktur-desa.png') }}" alt="">
                 </div>
                 <div class="my-4 row">
-                    <div class="col-4 d-flex justify-content-center">
+                    <div class="col-lg-4 col-12 d-flex justify-content-center my-4">
                         <iframe class="h-100 border-r-10" src="https://www.youtube.com/embed/fN5daMGykKs">
                         </iframe>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-12 d-flex justify-content-center my-4">
                         <iframe class="h-100 border-r-10" src="https://www.youtube.com/embed/FvTiBZlUx68">
                         </iframe>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-12 d-flex justify-content-center my-4">
                         <iframe class="h-100 border-r-10" src="https://www.youtube.com/embed/xR-vxJ7PEyQ">
                         </iframe>
                     </div>

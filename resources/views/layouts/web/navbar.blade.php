@@ -15,6 +15,7 @@
         <a class="nav-link {{ $route === 'berita' ? "active" : "" }}" href="{{ url('/berita') }}">Berita</a>
         <a class="nav-link {{ $route === 'pariwisata' ? "active" : "" }}" href="{{ url('/pariwisata') }}">Pariwisata</a>
         <a class="nav-link {{ $route === 'umkm' ? "active" : "" }}" href="{{ url('/umkm') }}">UMKM</a>
+        <a class="nav-link {{ $route === 'administrasi' ? "active" : "" }}" href="{{ url('/administrasi') }}">Administrasi</a>
       </div>
     </div>
   </div>
