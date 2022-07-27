@@ -14,7 +14,6 @@
 body {
     font-family: "Poppins", sans-serif;
     background: var(--color-bg);
-    color: #444444;
 }
 
 a {
@@ -1154,7 +1153,6 @@ a:hover {
     font-size: 13px;
     color: #012970;
 }
-
 
 .ic-down {
     background-color: #4d787b;

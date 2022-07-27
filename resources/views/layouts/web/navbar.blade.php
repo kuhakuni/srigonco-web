@@ -1,7 +1,7 @@
 <!-- ========= NAVBAR ============ -->
   <nav class="navbar position-sticky top-0 bg-white navbar-expand-lg navbar-light">
   <div class="container"> 
-      <a class="navbar-brand d-flex flex-grid justify-content-center align-content-center gap-2" href="#">
+      <a class="navbar-brand d-flex flex-grid justify-content-center align-content-center gap-2" href="{{ url('/') }}">
         <img src="{{ asset('img/Logo_kab_malang.png') }}" alt="Missing Logo" width="44" height="57 ">
         <h5 class="my-auto text-center">Desa Srigonco</h5>        
       </a>

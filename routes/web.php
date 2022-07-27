@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.web.homepage', ["route"=>"/"]);
-});
+Route::get("/", [MainController::class, "index"]);
 
-Route::get('/login', function () {
-    return view('pages.admin.login', ["route"=>"login"]);
+Route::get("/login", function () {
+    return view("pages.admin.login", ["route" => "login"]);
 });
-Route::get('/berita', function () {
-    return view('pages.web.berita', ["route"=>"berita"]);
-});
-Route::get('/umkm', function () {
-    return view('pages.web.umkm', ["route"=>"umkm"]);
-});
-Route::get('/profil', function () {
-    return view('pages.web.profil', ["route"=>"profil"]);
-});
-Route::get('/administrasi', function () {
-    return view('pages.web.administrasi', ["route"=>"administrasi"]);
-});
+Route::get("/berita", [MainController::class, "berita"]);
+Route::get("/umkm", [MainController::class, "umkm"]);
+Route::get("/profil", [MainController::class, "profil"]);
+Route::get("/administrasi", [MainController::class, "administrasi"]);
