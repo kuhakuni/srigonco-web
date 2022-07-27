@@ -73,6 +73,7 @@
                     </div>
             </div>
         </div>
+        <p class="copyright text-center" >&copy; 2022 Desa Srigonco - KKN FILKOM UB</p>
     </div>
 </footer>
 <!-- ===== END OF FOOTER ===== -->
