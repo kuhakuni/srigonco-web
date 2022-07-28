@@ -26,10 +26,12 @@
 @include('layouts.web.footer')
  <!-- Vendor JS Files -->
  <script src="{{ asset("vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+ {{-- <script src="sweetalert2.min.js"></script> --}}
 
  <!-- Template Main JS File -->
  <script src="{{ asset("js/app.js") }}"></script>
-
+ <script src="{{ storage_path() }}"></script>
+ @include('sweetalert::alert')
 </body>
 
 </html>

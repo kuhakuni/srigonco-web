@@ -13,9 +13,15 @@ class Berita extends Model
      * The attributes that are mass assignable.
      * @var array
      */
-    protected $fillable = ["judul", "slug", "image", "isi_berita", "kategori"];
+    protected $fillable = [
+        "judul",
+        "slug",
+        "image",
+        "isi_berita",
+        "id_kategori",
+    ];
 
-    protected $with = ["kategoris"];
+    protected $with = ["kategori"];
 
     public function kategori()
     {

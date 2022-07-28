@@ -1,8 +1,15 @@
 <!-- ===== FOOTER ===== -->
 <footer class="p-4">
 	<div class="container">
-		<h4 class="fw-semibold text-black">KRITIK DAN SARAN</h4>
-		<form class="row g-3 needs-validation" method="post" action="/feedback" novalidate>
+        @if(Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+		<h4 class="fw-semibold text-black py-2">KRITIK DAN SARAN</h4>
+		<form class="row g-3 needs-validation" method="post" action="{{ url('/feedback') }}" novalidate>
+            @csrf
 			<div class="col-md-6">
 				<input
 					class="form-control"
@@ -12,6 +19,9 @@
 					placeholder="Nama Pengirim"
 					required
 				/>
+                @error('nama')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
 			</div>
 			<div class="col-md-6">
 				<input
@@ -22,17 +32,24 @@
 					placeholder="Email Pengirim"
 					required
 				/>
+               @error('email')
+                <div class="invalid-feedback">{{ $message }}</div>
+               @enderror
 			</div>
 			<div class="col-12">
 				<textarea
 					class="form-control"
-					name="pesan"
+					name="kritik_saran"
 					cols="30"
 					rows="5"
+                    maxlength="255"
 					style="resize: none"
-					placeholder="Tulis pesan disini"
+					placeholder="Tulis Kritik dan Saran di sini"
 					required
 				></textarea>
+                @error('kritik_saran')
+                <div class="invalid-feedback">{{ $message }}</div>
+               @enderror
 			</div>
 			<div class="col-12">
 				<button class="btn w-full" type="submit">Kirim</button>
@@ -58,21 +75,21 @@
 					referrerpolicy="no-referrer-when-downgrade"
 				></iframe>
 			</div>
-			<div class="col-md-5 my-3">
+			<div class="col-md-5 my-3 contact-us">
 				<h6 class="fw-semibold text-center">Hubungi Kami</h6>
-				<p class="fs-6">
+				<p>
 					Jl. Bale Kambang No.17, Dusun Krajan, Desa Srigonco,
 					Kecamatan Bantur, Kabupaten Malang 65179
 				</p>
 				<p>Phone : 0341</p>
-				<p>Email : pemerintahdesasrigonco@gmail.com</p>
 				<h6 class="mt-4 mb-2 font-semibold text-center">
 					Sosial Media
 				</h6>
-				<div class="d-flex justify-content-evenly">
-					<a href="#"> <i class="bi bi-facebook fs-3"></i></a>
-					<a href="#"> <i class="bi bi-instagram fs-3"></i></a>
-					<a href="#"> <i class="bi bi-twitter fs-3"></i></a>
+				<div class="d-flex justify-content-evenly sosmed">
+					<a href="mailto:pemerintahdesasrigonco@gmail.com" target="_blank"> <i class="bi bi-envelope"></i></a>
+					<a href="#" target="_blank"> <i class="bi bi-facebook"></i></a>
+					<a href="#" target="_blank"> <i class="bi bi-instagram"></i></a>
+					<a href="#" target="_blank"> <i class="bi bi-twitter"></i></a>
 				</div>
 			</div>
 		</div>

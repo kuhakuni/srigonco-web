@@ -1,4 +1,6 @@
-@extends('layouts.web.template') @section('main')
+@extends('layouts.web.template') 
+@section('main')
+
 <main>
 	<section class="hero">
 		<div class="container">

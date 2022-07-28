@@ -22,4 +22,6 @@ Route::get("/login", function () {
 Route::get("/berita", [MainController::class, "berita"]);
 Route::get("/umkm", [MainController::class, "umkm"]);
 Route::get("/profil", [MainController::class, "profil"]);
+Route::get("/pariwisata", [MainController::class, "pariwisata"]);
 Route::get("/administrasi", [MainController::class, "administrasi"]);
+Route::post("/feedback", [MainController::class, "feedback"]);

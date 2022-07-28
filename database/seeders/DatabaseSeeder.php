@@ -9,7 +9,7 @@ use App\Models\Kategori;
 use App\Models\UMKM;
 use App\Models\Pariwisata;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
+use App\Models\KritikSaran;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,5 +32,6 @@ class DatabaseSeeder extends Seeder
         Pariwisata::factory(5)->create();
         Kategori::factory(5)->create();
         Berita::factory(5)->create();
+        KritikSaran::factory(5)->create();
     }
 }

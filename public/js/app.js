@@ -1,5 +1,4 @@
 // const { functions } = require("lodash");
-
 (function () {
     "use strict";
     /**

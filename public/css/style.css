@@ -45,8 +45,9 @@ img {
 .ic-down {
     background-color: #4d787b;
 }
-
-
+.fw-semibold {
+    font-weight: 600;
+}
 /* NAVBAR */
 .navbar {
     transition: all 0.5s;
@@ -385,6 +386,17 @@ footer .bi {
 .fs-12p {
     font-size: 12px !important;
 }
+.contact-us p {
+    font-size: 1rem;
+}
+.sosmed a {
+    font-size: calc(1.3rem + 0.6vw);
+    color: var(--color-primary);
+    transition: color ease-in-out 0.2s;
+}
+.sosmed a:hover {
+    color: var(--hover-color-primary);
+}
 
 .header-img {
     background-size: cover;
@@ -392,15 +404,14 @@ footer .bi {
     height: 50vh;
     color: #ffffff;
 }
-.header-img h1,
-.header-img h2 {
-    font-weight: 700;
-}
+
 .header-img h1 {
     font-size: 48px;
+    font-weight: 700;
 }
 .header-img h2 {
     font-size: 40px;
+    font-weight: 600;
 }
 
 /* ---------------------- PARIWISATA & UMKM PAGE ------------------------- */
@@ -415,7 +426,6 @@ footer .bi {
     text-decoration: none;
 }
 /* ---------------------- END OF PARIWISATA & UMKM PAGE ------------------------- */
-
 
 /* ---------------------- END OF BERITA PAGE ------------------------- */
 .card-title {
