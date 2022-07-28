@@ -24,7 +24,7 @@
 			<div class="row">
 				<div class="col-md-6 d-flex justify-content-center flex-column">
 					<h1 class="fw-bold mb-3">Tentang Srigonco</h1>
-					<p style="text-align: justify">
+					<p class="text-justify">
 						Srigonco adalah sebuah desa yang subur dan asri yang
 						terletak di Kecamatan Bantur, Kabupaten Malang, Jawa
 						Timur. Sebelumnya desa ini memiliki nama Guling yang

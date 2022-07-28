@@ -32,11 +32,17 @@ img {
 .bg-primary {
     background-color: var(--color-primary) !important;
 }
+.bg-secondary {
+    background-color: var(--color-secondary) !important;
+}
 .border-r-15 {
     border-radius: 15px;
 }
 .border-r-10 {
     border-radius: 10px;
+}
+.text-justify {
+    text-align: justify;
 }
 .wa:hover {
     text-decoration: none;
@@ -136,6 +142,9 @@ img {
     .pariwisata .col-md-6 {
         margin: 1rem 0;
     }
+    .img-map {
+        margin-bottom: 1rem;
+    }
 }
 .img-carousel {
     border-radius: 0 250px 250px 0;
@@ -179,6 +188,11 @@ img {
     justify-content: center;
     align-items: stretch;
     margin: 25px 0;
+}
+@media (max-width: 992px) {
+    .img-kades {
+        margin-bottom: 3rem;
+    }
 }
 /*--------------------------------------------------------------
 # Portfolio
@@ -414,7 +428,7 @@ footer .bi {
     font-weight: 600;
 }
 
-.copyright{
+.copyright {
     margin-top: 20px;
 }
 /* -------------------- END OF FOOTER ----------------- */
