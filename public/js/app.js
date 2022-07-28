@@ -55,7 +55,7 @@
     let selectNavbar = select(".navbar");
     if (selectNavbar) {
         const navbarScrolled = () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 selectNavbar.classList.add("navbar-scrolled");
             } else {
                 selectNavbar.classList.remove("navbar-scrolled");

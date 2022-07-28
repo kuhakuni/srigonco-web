@@ -189,6 +189,12 @@ img {
     align-items: stretch;
     margin: 25px 0;
 }
+.news-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 @media (max-width: 992px) {
     .img-kades {
         margin-bottom: 3rem;

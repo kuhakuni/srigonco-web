@@ -1,6 +1,5 @@
 @extends('layouts.web.template') 
 @section('main')
-
 <main>
 	<section class="hero">
 		<div class="container">
@@ -183,6 +182,16 @@
 							>
 								<h5 class="carousel-title">UMKM SRIGONCO</h5>
 								<p class="carousel-subtitle">Batik Tulis</p>
+								<p class="carousels-content">
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Sunt impedit excepturi
+									voluptatum! Fuga doloremque maxime totam
+									modi! Incidunt velit exercitationem porro ad
+									hic delectus dolor.
+								</p>
+								<div>
+									<a href="#" class="btn">Selengkapnya</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -200,6 +209,16 @@
 							>
 								<h5 class="carousel-title">UMKM SRIGONCO</h5>
 								<p class="carousel-subtitle">Batik Tulis</p>
+								<p class="carousels-content">
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Sunt impedit excepturi
+									voluptatum! Fuga doloremque maxime totam
+									modi! Incidunt velit exercitationem porro ad
+									hic delectus dolor.
+								</p>
+								<div>
+									<a href="#" class="btn">Selengkapnya</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -217,6 +236,16 @@
 							>
 								<h5 class="carousel-title">UMKM SRIGONCO</h5>
 								<p class="carousel-subtitle">Batik Tulis</p>
+								<p class="carousels-content">
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Sunt impedit excepturi
+									voluptatum! Fuga doloremque maxime totam
+									modi! Incidunt velit exercitationem porro ad
+									hic delectus dolor.
+								</p>
+								<div>
+									<a href="#" class="btn">Selengkapnya</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -255,6 +284,7 @@
 				<a href="{{ url('/berita') }}" class="news">Selengkapnya > </a>
 			</div>
 			<div class="row">
+				@foreach ($latest_news as $news)
 				<div class="col-md-4 card-container">
 					<div class="card" style="width: 18rem">
 						<img
@@ -263,62 +293,24 @@
 							alt="Missing Berita pic"
 						/>
 						<div class="card-body">
-							<h5 class="card-title">
-								Kisah Inspiratif Pemuda Srigonco
-							</h5>
-							<p class="card-text">
-								Lorem ipsum, dolor sit amet consectetur
-								adipisicing elit. Reiciendis cum ad sunt? Ipsam
-								cum nisi dolore! Unde corporis dolor temporibus.
+							<a
+								href='{{ url("/berita/kategori/". $news->kategori->slug) }}'
+								class="badge bg-secondary text-black mb-2"
+								>{{ $news->kategori->kategori }}</a
+							>
+							<h5 class="card-title">{{ $news->judul }}</h5>
+							<p class="card-text news-content">
+								{{ $news->isi_berita }}
 							</p>
-							<a href="#" class="btn btn-primary more-news"
+							<a
+								href="{{ url('/berita/'. $news->slug) }}"
+								class="btn btn-primary more-news"
 								>Selengkapnya</a
 							>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 card-container">
-					<div class="card" style="width: 18rem">
-						<img
-							src="img/blog/2.jpg"
-							class="card-img-top"
-							alt="Missing Berita pic"
-						/>
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Ex dicta aliquam vitae
-								repellat officia culpa officiis delectus, vel
-								facilis ipsa!
-							</p>
-							<a href="#" class="btn btn-primary more-news"
-								>Selengkapnya</a
-							>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 card-container">
-					<div class="card" style="width: 18rem">
-						<img
-							src="img/blog/3.jpg"
-							class="card-img-top"
-							alt="Missing Berita pic"
-						/>
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Voluptas illum, quos doloribus
-								placeat quia saepe mollitia modi molestias
-								totam. Temporibus.
-							</p>
-							<a href="#" class="btn btn-primary more-news"
-								>Selengkapnya</a
-							>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>

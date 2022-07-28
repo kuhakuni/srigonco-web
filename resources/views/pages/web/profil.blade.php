@@ -6,10 +6,12 @@
 			<div class="row flex-lg-row flex-column-reverse align-items-center">
 				<div class="col-lg-7 col-12">
 					<h2 class="fw-bold">Sambutan Kepala Desa</h2>
-					<p class="fst-italic">
+					<p class="fst-italic" style="font-weight: 500">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Sed doloremque ex eius similique magnam cupiditate fugit
-						autem minus hic amet.
+						Quidem velit beatae, repudiandae eveniet nulla a atque,
+						modi optio explicabo saepe magni ratione adipisci
+						recusandae ipsum. Alias harum consequuntur minus
+						assumenda.
 					</p>
 				</div>
 				<div
@@ -27,10 +29,12 @@
 	<div class="container mt-5">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-md-6 col-12 img-map">
-				<img
-					src="{{ asset('img/map-srigonco.png') }}"
-					alt="Missing Logo"
-				/>
+				<a href="img/map-srigonco.png">
+					<img
+						src="{{ asset('img/map-srigonco.png') }}"
+						alt="Missing Logo"
+					/>
+				</a>
 			</div>
 			<div class="col-md-6 col-12">
 				<h4 class="fw-bold">Letak Geografis</h4>
@@ -54,13 +58,16 @@
 				Struktur Perangkat Desa Srigonco
 			</h3>
 			<div class="col-12 mt-4">
-				<img
-					src="{{ asset('img/Struktur Perangkat Desa.png') }}"
-					alt="Missing struktur pic"
-				/>
+				<a href="img/Struktur Perangkat Desa.png">
+					<img
+						src="{{ asset('img/Struktur Perangkat Desa.png') }}"
+						alt="Missing struktur pic"
+					/>
+				</a>
 			</div>
-			<div class="my-4 row">
-				<div class="col-md-4 col-12 d-flex justify-content-center my-2">
+			<h3 class="text-center fw-bold">Seputar Desa Srigonco</h3>
+			<div class="my-4 row d-flex justify-content-center">
+				<div class="col-md-4 col-12 my-2">
 					<div class="ratio ratio-16x9">
 						<iframe
 							class="rounded-3"
@@ -69,7 +76,7 @@
 						</iframe>
 					</div>
 				</div>
-				<div class="col-md-4 col-12 d-flex justify-content-center my-2">
+				<div class="col-md-4 col-12 my-2">
 					<div class="ratio ratio-16x9">
 						<iframe
 							class="rounded-3"
@@ -78,7 +85,7 @@
 						</iframe>
 					</div>
 				</div>
-				<div class="col-md-4 col-12 d-flex justify-content-center my-2">
+				<div class="col-md-4 col-12 my-2">
 					<div class="ratio ratio-16x9">
 						<iframe
 							class="rounded-3"

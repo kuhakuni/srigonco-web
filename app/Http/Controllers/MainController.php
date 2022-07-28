@@ -10,10 +10,13 @@ class MainController extends Controller
 {
     public function index()
     {
-        $berita = Berita::query()->latest("created_at");
+        $latest_news = Berita::query()
+            ->latest("created_at")
+            ->limit(3)
+            ->get();
         return view("pages.web.homepage", [
             "route" => "/",
-            "berita" => $berita,
+            "latest_news" => $latest_news,
         ]);
     }
     public function profil()
