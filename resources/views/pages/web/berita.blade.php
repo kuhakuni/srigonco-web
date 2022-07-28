@@ -60,62 +60,44 @@
         </div>
         <div class="row mt-4 d-flex flex-lg-row flex-column-reverse">
           <div class="col-lg-8 col-12">
-            <div class="row">
-              <div class="col-6">
+            <div class="row mb-4">
+              <div class="col-md-6 col-12">
                 <p  class="fs-12p"><strong> Dusun Krajan </strong>| 22 Juli, 2022</p>
                 <h4 class="text-black fw-bold">Jokowi Pakai Kemeja Putih 'Indonesia Maju' di Hari Reshuffle Kabinet</h3>
                 <p><strong>Jakarta - Zulkifli</strong> Hasan santer dikabarkan bakal dilantik menjadi Menteri Perdagangan menggantikan Muhammad Lutfi.</p>
                 <p class="fs-12p">20 jam yang lalu</p>
               </div>
-              <div class="col-6">
+              <div class="col-md-6 col-12">
                 <img class="border-r-15 w-100" src="{{ asset('img/header_umkm.png') }}" alt="">
               </div>
             </div>
             {{-- 1 ROW BERITA --}}
             <div class="row">
-              <div class="col-4">
+              <hr>
+              <div class="col-md-4 col-12">
                 <img class="border-r-15 w-100" src="{{ asset('img/header_umkm.png') }}" alt="">
               </div>
-              <div class="col-8">
+              <div class="col-md-8 col-12">
                 <h5 class="black-text">Viral Foto Selebgram Cantik saat Ditangkap Polisi, Wajah Aslinya Jadi Sorotan</h5>
                 <p><strong>Jakarta - LINE </strong>Today akan resmi ditutup pada 6 Juli 2022. Line Indonesia menyampaikan....</p>
                 <p class="fs-12p">1 jam yang lalu</p>
               </div>
-              <hr>
             </div>
             {{-- END OF 1 ROW BERITA --}}
+            {{-- 1 ROW BERITA --}}
             <div class="row">
-              <div class="col-4">
-                <img class="border-r-15 w-100" src="{{ asset('img/header_umkm.png') }}" alt="">
-              </div>
-              <div class="col-8">
-                <h5 class="black-text">Viral Foto Selebgram Cantik saat Ditangkap Polisi, Wajah Aslinya Jadi Sorotan</h5>
-                <p><strong>Jakarta - LINE </strong>Today akan resmi ditutup pada 6 Juli 2022. Line Indonesia menyampaikan....</p>
-                <p class="fs-12p">1 jam yang lalu</p>
-              </div>
               <hr>
-            </div>
-            <div class="row">
-              <div class="col-4">
+              <div class="col-md-4 col-12">
                 <img class="border-r-15 w-100" src="{{ asset('img/header_umkm.png') }}" alt="">
               </div>
-              <div class="col-8">
-                <h5 class="black-text">Viral Foto Selebgram Cantik saat Ditangkap Polisi, Wajah Aslinya Jadi Sorotan</h5>
-                <p><strong>Jakarta - LINE </strong>Today akan resmi ditutup pada 6 Juli 2022. Line Indonesia menyampaikan....</p>
-                <p class="fs-12p">1 jam yang lalu</p>
-              </div>
-              <hr>
-            </div>
-            <div class="row">
-              <div class="col-4">
-                <img class="border-r-15 w-100" src="{{ asset('img/header_umkm.png') }}" alt="">
-              </div>
-              <div class="col-8">
+              <div class="col-md-8 col-12">
                 <h5 class="black-text">Viral Foto Selebgram Cantik saat Ditangkap Polisi, Wajah Aslinya Jadi Sorotan</h5>
                 <p><strong>Jakarta - LINE </strong>Today akan resmi ditutup pada 6 Juli 2022. Line Indonesia menyampaikan....</p>
                 <p class="fs-12p">1 jam yang lalu</p>
               </div>
             </div>
+            {{-- END OF 1 ROW BERITA --}}
+            
           </div>
           <div class="col-lg-3 col-12">
             <h5 class="text-black fw-bold">Arsip Berita dan Artikel</h5>

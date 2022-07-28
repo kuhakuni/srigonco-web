@@ -414,6 +414,11 @@ footer .bi {
     font-weight: 600;
 }
 
+.copyright{
+    margin-top: 20px;
+}
+/* -------------------- END OF FOOTER ----------------- */
+
 /* ---------------------- PARIWISATA & UMKM PAGE ------------------------- */
 .map-btn {
     background-color: var(--color-primary);

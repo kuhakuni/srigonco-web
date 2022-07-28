@@ -1,12 +1,6 @@
 <!-- ===== FOOTER ===== -->
 <footer class="p-4">
 	<div class="container">
-        @if(Session::has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ Session::get('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
 		<h4 class="fw-semibold text-black py-2">KRITIK DAN SARAN</h4>
 		<form class="row g-3 needs-validation" method="post" action="{{ url('/feedback') }}" novalidate>
             @csrf
