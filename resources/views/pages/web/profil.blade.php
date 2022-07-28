@@ -34,10 +34,10 @@
                     Al-Jawahir.
                 </div>
             </div>
-            <div class="row">
-                <div class="border-r-15 bg-primary col-12 p-4 mt-4">
-                    <h3 class="text-center text-black">Struktur Desa Srigonco</h3>
-                    <img class="w-100" src="{{ asset('img/struktur-desa.png') }}" alt="">
+            <div class="row mt-5">
+                <h3 class="text-center fw-bold">Struktur Perangkat Desa Srigonco</h3>
+                <div class="col-12 mt-4">
+                    <img src="{{ asset('img/Struktur Perangkat Desa.png') }}" alt="">
                 </div>
                 <div class="my-4 row">
                     <div class="col-lg-4 col-12 d-flex justify-content-center my-4">

@@ -59,114 +59,107 @@
 				Jelajahi tempat wisata di Desa Srigonco
 			</p>
 		</div>
-        <div class="pt-0" style="overflow: hidden;">
-            <div class="container">
-                <div class="row awesome-project-content portfolio-container">
-                    <div
-                        class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-app portfolio-item"
-                    >
-                        <div class="single-awesome-project">
-                            <div class="awesome-img">
-                                <a href="#"
-                                    ><img src="img/pariwisata-1.jpg" alt=""
-                                /></a>
-                                <div class="add-actions text-center">
-                                    <div class="project-dec">
-                                        <a
-                                            class="portfolio-lightbox"
-                                            data-gallery="myGallery"
-                                            href="img/pariwisata-1.jpg"
-                                        >
-                                            <h4>Pantai Balekambang</h4>
-                                            {{-- <span>Web Development</span> --}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item end -->
-    
-                    <!-- portfolio-item start -->
-                    <div
-                        class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-web"
-                    >
-                        <div class="single-awesome-project">
-                            <div class="awesome-img">
-                                <a href="#"
-                                    ><img src="img/pariwisata-2.jpg" alt=""
-                                /></a>
-                                <div class="add-actions text-center">
-                                    <div class="project-dec">
-                                        <a
-                                            class="portfolio-lightbox"
-                                            data-gallery="myGallery"
-                                            href="img/pariwisata-2.jpg"
-                                        >
-                                            <h4>Pantai Regent</h4>
-                                            {{-- <span>Photosho</span> --}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item end -->
-    
-                    <!-- portfolio-item start -->
-                    <div
-                        class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-card"
-                    >
-                        <div class="single-awesome-project">
-                            <div class="awesome-img">
-                                <a href="#"
-                                    ><img src="img/pariwisata-3.jpg" alt=""
-                                /></a>
-                                <div class="add-actions text-center">
-                                    <div class="project-dec">
-                                        <a
-                                            class="portfolio-lightbox"
-                                            data-gallery="myGallery"
-                                            href="img/pariwisata-3.jpg"
-                                        >
-                                            <h4>Coban Kedung Darmo</h4>
-                                            {{-- <span>Web Design</span> --}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item end -->
-    
-                    <!-- portfolio-item start -->
-                    <div
-                        class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-web"
-                    >
-                        <div class="single-awesome-project">
-                            <div class="awesome-img">
-                                <a href="#"
-                                    ><img src="img/pariwisata-4.jpg" alt=""
-                                /></a>
-                                <div class="add-actions text-center">
-                                    <div class="project-dec">
-                                        <a
-                                            class="portfolio-lightbox"
-                                            data-gallery="myGallery"
-                                            href="img/pariwisata-4.jpg"
-                                        >
-                                        <h4>Pantai Regent</h4>
-                                        {{-- <span>Web design</span> --}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item end -->
-                </div>
-            </div>
-        </div>
+		<div class="pt-0" style="overflow: hidden">
+			<div class="container">
+				<div class="row awesome-project-content portfolio-container">
+					<div
+						class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-app portfolio-item"
+					>
+						<div class="single-awesome-project">
+							<div class="awesome-img">
+								<a href="#"
+									><img src="img/pariwisata-1.jpg" alt=""
+								/></a>
+								<div class="add-actions text-center">
+									<div class="project-dec">
+										<a
+											class="portfolio-lightbox"
+											data-gallery="myGallery"
+											href="img/pariwisata-1.jpg"
+										>
+											<h4>Pantai Balekambang</h4>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-web"
+					>
+						<div class="single-awesome-project">
+							<div class="awesome-img">
+								<a href="#"
+									><img src="img/pariwisata-2.jpg" alt=""
+								/></a>
+								<div class="add-actions text-center">
+									<div class="project-dec">
+										<a
+											class="portfolio-lightbox"
+											data-gallery="myGallery"
+											href="img/pariwisata-2.jpg"
+										>
+											<h4>Pantai Regent</h4>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-card"
+					>
+						<div class="single-awesome-project">
+							<div class="awesome-img">
+								<a href="#"
+									><img src="img/pariwisata-3.jpg" alt=""
+								/></a>
+								<div class="add-actions text-center">
+									<div class="project-dec">
+										<a
+											class="portfolio-lightbox"
+											data-gallery="myGallery"
+											href="img/pariwisata-3.jpg"
+										>
+											<h4>Coban Kedung Darmo</h4>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-6 col-sm-6 col-xs-12 portfolio-item filter-web"
+					>
+						<div class="single-awesome-project">
+							<div class="awesome-img">
+								<a href="#"
+									><img src="img/pariwisata-4.jpg" alt=""
+								/></a>
+								<div class="add-actions text-center">
+									<div class="project-dec">
+										<a
+											class="portfolio-lightbox"
+											data-gallery="myGallery"
+											href="img/pariwisata-4.jpg"
+										>
+											<h4>Pantai Regent</h4>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-12 mt-5 d-flex justify-content-center align-items-center"
+				>
+					<a href="{{ url('/pariwisata') }}" class="btn mx-auto"
+						>Selengkapnya</a
+					>
+				</div>
+			</div>
+		</div>
 	</section>
 	<section class="umkm">
 		<div class="container">
@@ -264,7 +257,11 @@
 			<div class="row">
 				<div class="col-md-4 card-container">
 					<div class="card" style="width: 18rem">
-						<img src="img/blog/1.jpg" class="card-img-top" alt="..." />
+						<img
+							src="img/blog/1.jpg"
+							class="card-img-top"
+							alt="Missing Berita pic"
+						/>
 						<div class="card-body">
 							<h5 class="card-title">
 								Kisah Inspiratif Pemuda Srigonco
@@ -282,7 +279,11 @@
 				</div>
 				<div class="col-md-4 card-container">
 					<div class="card" style="width: 18rem">
-						<img src="img/blog/2.jpg" class="card-img-top" alt="..." />
+						<img
+							src="img/blog/2.jpg"
+							class="card-img-top"
+							alt="Missing Berita pic"
+						/>
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
 							<p class="card-text">
@@ -299,7 +300,11 @@
 				</div>
 				<div class="col-md-4 card-container">
 					<div class="card" style="width: 18rem">
-						<img src="img/blog/3.jpg" class="card-img-top" alt="..." />
+						<img
+							src="img/blog/3.jpg"
+							class="card-img-top"
+							alt="Missing Berita pic"
+						/>
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
 							<p class="card-text">
