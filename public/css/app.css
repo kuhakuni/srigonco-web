@@ -35,6 +35,13 @@ a:hover {
 .border-r-10 {
     border-radius: 10px;
 }
+
+#main{
+    margin-top: 60px;
+    padding: 20px 30px;
+    transition: all 0.3s;
+}
+
 /* NAVBAR */
 .navbar-brand {
     font-size: 16px;

@@ -14,10 +14,10 @@ return new class extends Migration {
     {
         Schema::create("berita", function (Blueprint $table) {
             $table->id();
-            $table->string("judul", 100);
-            $table->string("slug");
+            $table->string("judul", 100)->unique();
+            $table->string("slug")->unique();
             $table->string("image")->nullable();
-            $table->string("isi_berita", 1000);
+            $table->longText("isi_berita");
             $table->foreignId("id_kategori")->constrained("kategori");
             $table->timestamps();
         });

@@ -37,7 +37,9 @@
  <script src="{{ asset("vendor/tinymce/tinymce.min.js") }}"></script>
 
  <!-- Template Main JS File -->
- <script src="{{ asset("js/app.js") }}"></script>
+ <script src="{{ asset("js/main.js") }}"></script>
+ @include('sweetalert::alert')
+
 
 </body>
 

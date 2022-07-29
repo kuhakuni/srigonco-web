@@ -12,42 +12,51 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        @if($route === 'barang' || $route === 'supplier' || $route === 'kategori')
+        @if($route === 'berita' || $route === 'kategori')
         <a class="nav-link" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-box"></i><span>Inventory</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-newspaper"></i><span>Berita</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse show " data-bs-parent="#sidebar-nav">
         @else
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-box"></i><span>Inventory</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-newspaper"></i><span>Berita</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
         @endif
           <li>
-            <a href="{{ url('/barang') }}" class="{{ $route === 'barang' ? "active" : "" }}">
-              <i class="bi bi-circle"></i><span>Data Product</span>
+            <a href="{{ url('/dashboard/berita') }}" class="{{ $route === 'berita' ? "active" : "" }}">
+              <i class="bi bi-circle"></i><span>Data Berita</span>
             </a>
           </li>
           <li>
-            <a href="{{ url('/supplier') }}" class="{{ $route === 'supplier' ? "active" : "" }}">
-              <i class="bi bi-circle"></i><span>Data Supplier</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('/kategori') }}" class="{{ $route === 'kategori' ? "active" : "" }}">
+            <a href="{{ url('/dashboard/kategori') }}" class="{{ $route === 'kategori' ? "active" : "" }}">
               <i class="bi bi-circle"></i><span>Data Kategori</span>
             </a>
           </li>
         </ul>
-      </li><!-- End Inventory Nav -->
-
+      </li><!-- End Berita Nav -->
+      
       <li class="nav-item">
-        <a class="nav-link {{ $route === 'transaksi' ? '' : 'collapsed' }}" href="{{ url('/transaksi') }}">
 
-          <i class="bi bi-cart"></i>
-          <span>Transaksi</span>
+        <a class="nav-link {{ $route === 'pariwisata' ? '' : 'collapsed' }}" href="{{ url('/dashboard/pariwisata') }}">
+
+          <i class="bi bi-umbrella"></i>
+          <span>pariwisata</span>
         </a>
-      </li><!-- End Transaksi Nav -->
+      </li><!-- End Pariwisata Nav -->
+
+        <a class="nav-link {{ $route === 'umkm' ? '' : 'collapsed' }}" href="{{ url('/dashboard/umkm') }}">
+
+          <i class="bi bi-currency-dollar"></i>
+          <span>UMKM</span>
+        </a>
+      </li><!-- End UMKM Nav -->
+
+        <a class="nav-link {{ $route === 'administrasi' ? '' : 'collapsed' }}" href="{{ url('/dashboard/administrasi') }}">
+          <i class="bi bi-envelope"></i>
+          <span>administrasi</span>
+        </a>
+      </li><!-- End administrasi Nav -->
 
       <li class="nav-heading">Administrator</li>
 
