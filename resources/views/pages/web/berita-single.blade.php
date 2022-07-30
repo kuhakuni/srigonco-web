@@ -1,65 +1,46 @@
-@extends('layouts.web.template') @section('main')
+@extends('layouts.web.template') 
+@section('main')
 <main id="main">
-	<!-- ======= Blog Section ======= -->
-	<section id="blog" class="blog">
+	<!-- ======= Blog Single Section ======= -->
+	<section id="blog" class="blog pt-5">
 		<div class="container" data-aos="fade-up">
-			@if (!empty($berita))
-			<h1 class="text-black my-4">
-				<strong>Berita Srigonco</strong>
-			</h1>
 			<div class="row">
+				@if (!$berita->isEmpty()) 
+                @foreach ($berita as $news)
 				<div class="col-lg-8">
-					<div class="berita-card">
-						@foreach ($berita as $news)
-						<div class="berita">
-							<div class="row">
-								<div class="col-md-4 mb-2">
-									<div class="aspect-ratio">
-										<img
-											class="img-fluid rounded-1"
-											src="{{ $news->image }}"
-											alt="Missing berita pic"
-										/>
-									</div>
-								</div>
-								<div
-									class="col-md-8 d-flex flex-column justify-content-center"
-								>
-									<a
-										href="{{ url('/berita/'. $news->slug) }}"
-									>
-										<h5 class="berita-title">
-											{{$news->judul}}
-										</h5>
-									</a>
-									<p class="m-0">
-										<i class="bi bi-calendar me-2"></i>
-										{{ date('d F
-										Y',strtotime($news->updated_at)) }}
-									</p>
-								</div>
-							</div>
-							<hr />
+					<article class="entry entry-single">
+						<div class="entry-img">
+							<img
+								src="{{ $news->image }}"
+								alt=""
+								class="img-fluid"
+							/>
 						</div>
-						@endforeach
-					</div>
 
-					<div class="blog-pagination">
-						<ul class="justify-content-center">
-							<li><a href="#">1</a></li>
-							<li class="active">
-								<a href="#">2</a>
-							</li>
-							<li><a href="#">3</a></li>
-						</ul>
-					</div>
+						<h2 class="entry-title">{{ $news->judul }}</h2>
+
+						<div class="entry-meta">
+							<ul>
+								<li class="d-flex align-items-center">
+									<i class="bi bi-calendar"></i>
+									{{ date('d F
+									Y',strtotime($news->updated_at)) }}
+								</li>
+							</ul>
+						</div>
+
+						<div class="entry-content">{{ $news->isi_berita }}</div>
+					</article>
+					<!-- End blog entry -->
 				</div>
+				@endforeach
+
 				<!-- End blog entries list -->
 
 				<div class="col-lg-4">
 					<div class="sidebar">
 						<!-- End sidebar search formn-->
-						<h3 class="sidebar-title">Kategori</h3>
+						<h3 class="sidebar-title">Kate</h3>
 						<div class="sidebar-item categories">
 							<ul>
 								@foreach ($categories as $category)
@@ -121,11 +102,7 @@
 					</div>
 					<!-- End sidebar -->
 				</div>
-
-				<!-- End blog sidebar -->
-			</div>
-			@else
-			<div class="row">
+				@else
 				<div class="col-md-6 text-center mx-auto">
 					<img
 						src="{{ asset('img/undraw_page_not_found_re_e9o6.svg') }}"
@@ -133,13 +110,11 @@
 					/>
 					<p class="fs-2 fw-semibold mt-2">Berita Tidak Ditemukan</p>
 				</div>
+				@endif
+				<!-- End blog sidebar -->
 			</div>
-
-			@endif
 		</div>
 	</section>
-	<!-- End Blog Section -->
+	<!-- End Blog Single Section -->
 </main>
-<!-- End #main -->
-
 @endsection

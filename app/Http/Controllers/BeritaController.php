@@ -9,7 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-
+use function PHPSTORM_META\map;
 
 class BeritaController extends Controller
 {
@@ -23,16 +23,54 @@ class BeritaController extends Controller
     {
         $berita = Berita::all();
         $kategori = Kategori::all();
-        return view(
-            'pages.admin.berita',
-            [
-                'route' => 'berita',
-                'berita' => $berita,
-                'kategori' => $kategori,
-            ]
-        );
+        return view("pages.admin.berita", [
+            "route" => "berita",
+            "berita" => $berita,
+            "kategori" => $kategori,
+        ]);
+    }
+    /**
+     * Show berita
+     */
+    public function show()
+    {
+        return view("pages.web.berita", [
+            "route" => "berita",
+            "title" => "Berita | Portal Srigonco",
+            "berita" => Berita::all(),
+            "categories" => Kategori::all(),
+        ]);
     }
 
+    /**
+     * Show berita by id
+     */
+    public function show_detail($slug)
+    {
+        $berita = Berita::where("slug", $slug)->get();
+        return view("pages.web.berita-single", [
+            "route" => "berita",
+            "title" => "Berita | Portal Srigonco",
+            "berita" => $berita,
+            "categories" => Kategori::all(),
+        ]);
+    }
+    /**
+     * Show
+     */
+    public function show_by_kategori($slug)
+    {
+        $kategori = Kategori::where("slug", $slug)->get();
+        $berita = $kategori->isEmpty()
+            ? []
+            : Berita::where("kategori_id", $kategori[0]->id)->get();
+        return view("pages.web.berita", [
+            "route" => "berita",
+            "title" => "Berita | Portal Srigonco",
+            "berita" => $berita,
+            "categories" => Kategori::all(),
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -55,41 +93,28 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $gambar = $request->file('gambar');
+        $gambar = $request->file("gambar");
         $ext = $gambar->extension();
-        $name = time() . '.' . $ext;
+        $name = time() . "." . $ext;
         // dd($request);
         // $isi = nl2br($request->isi, false);
-        $gambar->storeAs('public/img-berita/', $name);
+        $gambar->storeAs("public/img-berita/", $name);
         // dd($isi);
         try {
             Berita::create([
-                'judul' => $request->judul,
-                'image' => $name,
-                'slug' => Str::slug($request->judul),
-                'isi_berita' => $request->isi,
-                'id_kategori' => $request->kategori,
+                "judul" => $request->judul,
+                "image" => $name,
+                "slug" => Str::slug($request->judul),
+                "isi_berita" => $request->isi,
+                "id_kategori" => $request->kategori,
             ]);
-            Alert::success([
-                'Sukses!', 'Data Berhasil Ditambahkan'
-            ]);
+            Alert::success(["Sukses!", "Data Berhasil Ditambahkan"]);
         } catch (\Throwable $th) {
-            Alert::error('Tambah Data Gagal', 'Judul Tidak Boleh Sama!');
+            Alert::error("Tambah Data Gagal", "Judul Tidak Boleh Sama!");
         }
-            
+
         // dd($request->isi);
         return redirect()->back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -100,9 +125,13 @@ class BeritaController extends Controller
      */
     public function edit($slug)
     {
-        $berita = Berita::where('slug', $slug)->first();
+        $berita = Berita::where("slug", $slug)->first();
         $kategori = Kategori::all();
-        return view('pages.admin.edit.edit-berita', ['route' => 'berita', 'berita' => $berita, 'kategori' => $kategori]);
+        return view("pages.admin.edit.edit-berita", [
+            "route" => "berita",
+            "berita" => $berita,
+            "kategori" => $kategori,
+        ]);
     }
 
     /**
@@ -114,13 +143,13 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $berita = Berita::where('slug', $slug)->first();
-        if($request->file('gambar') != null){
+        $berita = Berita::where("slug", $slug)->first();
+        if ($request->file("gambar") != null) {
             $gblama = $berita->image;
-            Storage::delete('public/img-berita/'. $gblama);
-            $ext = $request->file('gambar')->extension();
-            $name = time() .  '.' . $ext;
-            $request->file('gambar')->storeAs('public/img-berita/', $name);
+            Storage::delete("public/img-berita/" . $gblama);
+            $ext = $request->file("gambar")->extension();
+            $name = time() . "." . $ext;
+            $request->file("gambar")->storeAs("public/img-berita/", $name);
             $berita->image = $name;
         }
         $berita->judul = $request->judul;
@@ -129,8 +158,8 @@ class BeritaController extends Controller
         $berita->id_kategori = $request->kategori;
         $berita->update();
 
-        Alert::success('Sukses!', 'Data Berhasil Diupdate!');
-        return redirect('/dashboard/berita');
+        Alert::success("Sukses!", "Data Berhasil Diupdate!");
+        return redirect("/dashboard/berita");
     }
 
     /**
@@ -141,14 +170,12 @@ class BeritaController extends Controller
      */
     public function destroy($slug)
     {
-        $berita = Berita::where('slug', $slug)->first();
+        $berita = Berita::where("slug", $slug)->first();
         $filename = $berita->image;
         // dd($filename);
         $berita->delete();
-        Storage::delete('public/img-berita/'. $filename);
-        Alert::success([
-            'Sukses!', 'Data Berhasil Dihapus'
-        ]);
+        Storage::delete("public/img-berita/" . $filename);
+        Alert::success(["Sukses!", "Data Berhasil Dihapus"]);
         return redirect()->back();
     }
 }

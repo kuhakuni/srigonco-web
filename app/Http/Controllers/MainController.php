@@ -27,14 +27,6 @@ class MainController extends Controller
             "title" => "Profil | Portal Srigonco",
         ]);
     }
-    public function berita()
-    {
-        return view("pages.web.berita", [
-            "route" => "berita",
-            "title" => "Berita | Portal Srigonco",
-            "berita" => Berita::all(),
-        ]);
-    }
     public function detail_berita($id)
     {
         $berita = Berita::find($id);
