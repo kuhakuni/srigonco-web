@@ -49,6 +49,9 @@
             </thead>
             
             <tbody>
+                @php
+                    $i=1;
+                @endphp
                 @foreach ($berita as $b)
                 <tr class="align-middle">
                     <th scope="row">{{ $i++; }}</th>

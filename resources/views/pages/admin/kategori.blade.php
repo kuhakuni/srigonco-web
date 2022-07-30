@@ -34,6 +34,9 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $i=1;
+                @endphp
                 @foreach ($kategori as $k)
                 <tr class="align-middle">
                     <th scope="row">{{ $i++; }}</th>
