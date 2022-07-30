@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Administrasi;
 use App\Models\KritikSaran;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -51,9 +52,11 @@ class MainController extends Controller
     }
     public function administrasi()
     {
+        $administrasi = Administrasi::all();
         return view("pages.web.administrasi", [
             "route" => "administrasi",
             "title" => "Administrasi | Portal Srigonco",
+            "administrasi" => $administrasi,
         ]);
     }
     public function feedback()

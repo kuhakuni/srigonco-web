@@ -288,15 +288,15 @@
 				<div class="col-md-4 card-container">
 					<div class="card" style="width: 18rem">
 						<img
-							src="img/blog/1.jpg"
+							src="{{Storage::url('img-berita/'.$news->image)}}"
 							class="card-img-top"
 							alt="Missing Berita pic"
 						/>
 						<div class="card-body">
-							<a
+							<agit
 								href='{{ url("/berita/kategori/". $news->kategori->slug) }}'
 								class="badge bg-secondary text-black mb-2"
-								>{{ $news->kategori->kategori }}</a
+								>{{ $news->kategori->kategori }}</agit add .
 							>
 							<h5 class="card-title">{{ $news->judul }}</h5>
 							<p class="card-text news-content">

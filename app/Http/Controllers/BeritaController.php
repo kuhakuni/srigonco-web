@@ -27,7 +27,6 @@ class BeritaController extends Controller
             "route" => "berita",
             "berita" => $berita,
             "kategori" => $kategori,
-            "i" => 1,
         ]);
     }
     /**

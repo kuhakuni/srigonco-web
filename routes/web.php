@@ -5,6 +5,8 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\AdministrasiController;
+use App\Models\Administrasi;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,9 @@ Route::get("/login", function () {
     ->middleware("guest");
 Route::post("/login", [AdminController::class, "login"]);
 Route::get("/logout", [AdminController::class, "logout"]);
-Route::get("/dashboard", [AdminController::class, "index"])->middleware("auth");
+Route::get("/dashboard", [AdministrasiController::class, "index"])->middleware(
+    "auth"
+);
 
 Route::prefix("dashboard")->group(function () {
     Route::group(["middleware" => "auth"], function () {
@@ -52,6 +56,20 @@ Route::prefix("dashboard")->group(function () {
             });
         });
         // BERITA ROUTE
+
+        // ADMINISTRASI ROUTE
+        Route::prefix("administrasi")->group(function () {
+            Route::controller(AdministrasiController::class)->group(
+                function () {
+                    Route::get("/", "index"); // SHOW ADMINISTRASI
+                    Route::post("/", "store"); //ADD ADMINISTRASI
+                    Route::get("/edit/{id}", "edit"); //EDIT ADMINISTRASI
+                    Route::get("/delete/{id}", "destroy"); //DELETE ADMINISTRASI
+                    Route::post("/update/{id}", "update"); //UPDATE ADMINISTRASI
+                }
+            );
+        });
+        // ADMINISTRASI ROUTE
     });
 });
 // ===========================================================
