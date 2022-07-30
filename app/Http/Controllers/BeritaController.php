@@ -40,6 +40,11 @@ class BeritaController extends Controller
      */
     public function create()
     {
+        $kategori = Kategori::all();
+        return view('pages.admin.add-berita', [
+            'route' => 'tambah_berita',
+            'kategori' => $kategori,
+        ]);
     }
 
     /**

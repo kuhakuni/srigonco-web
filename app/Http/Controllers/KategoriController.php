@@ -45,14 +45,20 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        Kategori::create([
-            'kategori' => $request->kategori,
-            'slug' => Str::slug($request->kategori)
-        ]);
-        Alert::success(
-            'Sukses!!',
-            'Data Berhasil Ditambahkan'
-        );
+        try {
+            //code...
+            Kategori::create([
+                'kategori' => $request->kategori,
+                'slug' => Str::slug($request->kategori)
+            ]);
+            Alert::success(
+                'Sukses!!',
+                'Data Berhasil Ditambahkan'
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+            Alert::error('Data Gagal Ditambahkan!!', 'Nama Kategori Harus Berbeda!!');
+        }
         return redirect()->back();
     }
 

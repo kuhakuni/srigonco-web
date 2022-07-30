@@ -10,7 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
     function index(){
-        
+
         return view('pages.admin.administrasi', ['route' => 'administrasi']);
     }
 
@@ -25,7 +25,7 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
-
+    
     function logout(){
         Auth::logout();
         Alert::success('Sukses!', 'Anda Telah Logout');

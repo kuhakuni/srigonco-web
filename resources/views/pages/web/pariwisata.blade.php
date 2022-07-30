@@ -20,7 +20,9 @@
                             quisque. Sit iaculis congue aliquet consectetur sit. Quisque interdum at eget cursus.</p>
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h6>HTM :</h6>
+                                <h6>HTM :
+                                    
+                                </h6>
                                 <a href="" class="wa"><i class="fs-4 bi bi-whatsapp "></i> 0895394832984</a>
                             </div>
                             <div class="col-4 d-flex justify-content-end">

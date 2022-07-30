@@ -21,7 +21,7 @@
                 @csrf
                 <label for="kategori" class="form-label">Kategori</label>
                 <input class="form-control" type="text" name="kategori" required>
-                <input type="submit" value="Tambah Data" class="text-white btn bg-primary my-2">
+                <input type="submit" value="Tambah Data" class="btn text-white btn bg-primary my-2">
             </form>
         </div>
 
@@ -50,7 +50,7 @@
                             Edit
                         </button>
                         <a class="btn btn-danger text-white"
-                            onclick="confirm('Apakah Anda Yakin ingin menghapus data?')"
+                            onclick="return confirm('Apakah Anda Yakin ingin menghapus data?')"
                             href="{{ url("dashboard/kategori/delete/$k->slug") }}">Hapus</a>
                     </td>
                 </tr>

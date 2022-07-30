@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AdministrasiController;
-use App\Models\Administrasi;
+use App\Http\Controllers\PariwisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +45,7 @@ Route::prefix('dashboard')->group(function(){
         Route::prefix('berita')->group(function(){
             Route::controller(BeritaController::class)->group(function(){
                 Route::get('/', 'index');   
+                Route::get('/tambah', 'create'); // SHOW FORM ADD BERITA    
                 Route::post('/', 'store'); //ADD BERITA
                 Route::get('/edit/{slug}', 'edit'); //EDIT BERITA
                 Route::get('/delete/{slug}', 'destroy'); //DELETE BERITA
@@ -52,7 +53,19 @@ Route::prefix('dashboard')->group(function(){
             });
         });
         // BERITA ROUTE
-
+        
+        // PARIWISATA ROUTE
+        Route::prefix('pariwisata')->group(function(){
+            Route::controller(PariwisataController::class)->group(function(){
+                Route::get('/', 'index');   
+                Route::get('/tambah', 'create'); // SHOW FORM ADD PARIWISATA    
+                Route::post('/', 'store'); //ADD PARIWISATA
+                Route::get('/edit/{slug}', 'edit'); //EDIT PARIWISATA
+                Route::get('/delete/{slug}', 'destroy'); //DELETE PARIWISATA
+                Route::post('/update/{slug}', 'update'); //UPDATE PARIWISATA
+            });
+        });
+        // PARIWISATA ROUTE
 
         // ADMINISTRASI ROUTE
         Route::prefix('administrasi')->group(function(){
