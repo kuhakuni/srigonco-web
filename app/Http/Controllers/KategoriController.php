@@ -18,14 +18,11 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::all();
         // dd($kategori);
-        return view(
-            'pages.admin.kategori',
-            [
-                'route' => 'kategori',
-                'kategori' => $kategori,
-                'i' => 1,
-            ]
-        );
+        return view("pages.admin.kategori", [
+            "route" => "kategori",
+            "kategori" => $kategori,
+            "i" => 1,
+        ]);
     }
 
     /**
@@ -47,13 +44,10 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         Kategori::create([
-            'kategori' => $request->kategori,
-            'slug' => Str::slug($request->kategori)
+            "kategori" => $request->kategori,
+            "slug" => Str::slug($request->kategori),
         ]);
-        Alert::success(
-            'Sukses!!',
-            'Data Berhasil Ditambahkan'
-        );
+        Alert::success("Sukses!!", "Data Berhasil Ditambahkan");
         return redirect()->back();
     }
 
@@ -89,11 +83,11 @@ class KategoriController extends Controller
     public function update(Request $request, $slug)
     {
         // dd($request);
-        $kategori = Kategori::where('slug', $slug)->first();
+        $kategori = Kategori::where("slug", $slug)->first();
         $kategori->kategori = $request->kategori;
         $kategori->slug = Str::slug($request->kategori);
         $kategori->update();
-        Alert::success('Sukses!', 'Data Berhasil Diupdate');
+        Alert::success("Sukses!", "Data Berhasil Diupdate");
         return redirect()->back();
     }
 
@@ -105,15 +99,18 @@ class KategoriController extends Controller
      */
     public function destroy($slug)
     {
-    $kategori = Kategori::where('slug', $slug)->first();
+        $kategori = Kategori::where("slug", $slug)->first();
         // dd($kategori);
         try {
             //code...
             $kategori->delete();
-            Alert::success('Sukses !!','Data Berhasil Dihapus');
+            Alert::success("Sukses !!", "Data Berhasil Dihapus");
         } catch (\Throwable $th) {
             //throw $th;
-            Alert::error('Data Gagal Dihapus!!', 'Mohon Perhatikan apakah ada kategori yang akan dihapus pada data berita');
+            Alert::error(
+                "Data Gagal Dihapus!",
+                "Terdapat berita dengan kategori tersebut"
+            );
         }
         return redirect()->back();
     }

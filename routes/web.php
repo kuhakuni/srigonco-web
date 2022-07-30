@@ -20,45 +20,50 @@ use App\Http\Controllers\BeritaController;
 // ========================= ADMIN ROUTE =====================
 Route::get("/login", function () {
     return view("pages.admin.login", ["route" => "login"]);
-})->name('login')->middleware('guest');
+})
+    ->name("login")
+    ->middleware("guest");
 Route::post("/login", [AdminController::class, "login"]);
 Route::get("/logout", [AdminController::class, "logout"]);
-Route::get("/dashboard", [AdminController::class, "index"])->middleware('auth');
+Route::get("/dashboard", [AdminController::class, "index"])->middleware("auth");
 
-
-Route::prefix('dashboard')->group(function(){
-    Route::group(['middleware' => 'auth'], function(){ // AUTH MIDDLEWARE
+Route::prefix("dashboard")->group(function () {
+    Route::group(["middleware" => "auth"], function () {
+        // AUTH MIDDLEWARE
         // KATEGORI ROUTE
-        Route::prefix('kategori')->group(function(){
-            Route::controller(KategoriController::class)->group(function(){
-                Route::get('/', 'index');   
-                Route::post('/', 'store'); //ADD KATEGORI
-                Route::get('/delete/{slug}', 'destroy'); //DELETE KATEGORI
-                Route::post('/update/{slug}', 'update'); //UPDATE KATEGORI
+        Route::prefix("kategori")->group(function () {
+            Route::controller(KategoriController::class)->group(function () {
+                Route::get("/", "index");
+                Route::post("/", "store"); //ADD KATEGORI
+                Route::get("/delete/{slug}", "destroy"); //DELETE KATEGORI
+                Route::post("/update/{slug}", "update"); //UPDATE KATEGORI
             });
         });
         // KATEGORI ROUTE
 
         // BERITA ROUTE
-        Route::prefix('berita')->group(function(){
-            Route::controller(BeritaController::class)->group(function(){
-                Route::get('/', 'index');   
-                Route::post('/', 'store'); //ADD BERITA
-                Route::get('/edit/{slug}', 'edit'); //EDIT BERITA
-                Route::get('/delete/{slug}', 'destroy'); //DELETE BERITA
-                Route::post('/update/{slug}', 'update'); //UPDATE BERITA
+        Route::prefix("berita")->group(function () {
+            Route::controller(BeritaController::class)->group(function () {
+                Route::get("/", "index");
+                Route::post("/", "store"); //ADD BERITA
+                Route::get("/edit/{slug}", "edit"); //EDIT BERITA
+                Route::get("/delete/{slug}", "destroy"); //DELETE BERITA
+                Route::post("/update/{slug}", "update"); //UPDATE BERITA
             });
         });
         // BERITA ROUTE
-        
     });
 });
 // ===========================================================
 
-
 // ============================== MAIN ROUTE ==========================
 Route::get("/", [MainController::class, "index"]);
-Route::get("/berita", [MainController::class, "berita"]);
+Route::get("/berita", [BeritaController::class, "show"]);
+Route::get("/berita/{slug}", [BeritaController::class, "show_detail"]);
+Route::get("/berita/kategori/{slug}", [
+    BeritaController::class,
+    "show_by_kategori",
+]);
 Route::get("/umkm", [MainController::class, "umkm"]);
 Route::get("/profil", [MainController::class, "profil"]);
 Route::get("/pariwisata", [MainController::class, "pariwisata"]);
