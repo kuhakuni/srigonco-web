@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-10">
                     <p class="text-black">Halaman ini memuat berkas-berkas dan surat untuk keperluan warga Desa Srigonco
-                        yang diupdate secara berkala, serta transparansi keuangan desa Srigonco mengenai beberapa sumber
+                        yang diperbaharui secara berkala, serta transparansi keuangan desa Srigonco mengenai beberapa sumber
                         bidang dan jumlah pendapatan desa pada tahun anggaran 2022. </p>
                 </div>
             </div>

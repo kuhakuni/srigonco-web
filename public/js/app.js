@@ -41,15 +41,6 @@
     }
 
     /**
-     * Search bar toggle
-     */
-    if (select(".search-bar-toggle")) {
-        on("click", ".search-bar-toggle", function (e) {
-            select(".search-bar").classList.toggle("search-bar-show");
-        });
-    }
-
-    /**
      * Toggle .navbar-scrolled class to #navbar when page is scrolled
      */
     let selectNavbar = select(".navbar");
@@ -82,16 +73,6 @@
     }
 
     /**
-     * Initiate tooltips
-     */
-    var tooltipTriggerList = [].slice.call(
-        document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    );
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-
-    /**
      * Initiate Bootstrap validation check
      */
     let needsValidation = document.querySelectorAll(".needs-validation");
@@ -109,26 +90,4 @@
             false
         );
     });
-
-    /**
-     * Initiate Datatables
-     */
-    const datatables = select(".datatable", true);
-    datatables.forEach((datatable) => {
-        new simpleDatatables.DataTable(datatable);
-    });
-
-    /**
-     * Autoresize echart charts
-     */
-    const mainContainer = select("#main");
-    if (mainContainer) {
-        setTimeout(() => {
-            new ResizeObserver(function () {
-                select(".echart", true).forEach((getEchart) => {
-                    echarts.getInstanceByDom(getEchart).resize();
-                });
-            }).observe(mainContainer);
-        }, 200);
-    }
 })();

@@ -3,12 +3,12 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link {{ $route === 'administrasi' ? '' : 'collapsed' }}"
-                href="{{ url('/dashboard/administrasi') }}">
-                <i class="bi bi-envelope"></i>
-                <span>administrasi</span>
+            <a class="nav-link {{ $route === 'dashboard' ? '' : 'collapsed' }}"
+                href="{{ url('/dashboard') }}">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
             </a>
-        </li><!-- End administrasi Nav -->
+        </li><!-- End dashboard Nav -->
         <li class="nav-item">
             @if($route === 'berita' || $route === 'kategori')
             <a class="nav-link" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -39,29 +39,27 @@
             <a class="nav-link {{ $route === 'pariwisata' ? '' : 'collapsed' }}"
                 href="{{ url('/dashboard/pariwisata') }}">
 
-                <i class="bi bi-umbrella"></i>
-                <span>pariwisata</span>
+                <i class="bi bi-tree"></i>
+                <span>Data Pariwisata</span>
             </a>
         </li><!-- End Pariwisata Nav -->
 
         <li class="nav-item">
             <a class="nav-link {{ $route === 'umkm' ? '' : 'collapsed' }}" href="{{ url('/dashboard/umkm') }}">
 
-                <i class="bi bi-currency-dollar"></i>
-                <span>UMKM</span>
+                <i class="bi bi-shop"></i>
+                <span>Data UMKM</span>
             </a>
         </li><!-- End UMKM Nav -->
-
+        <li class="nav-item">
+            <a class="nav-link {{ $route === 'administrasi' ? '' : 'collapsed' }}"
+                href="{{ url('/dashboard/administrasi') }}">
+                <i class="bi bi-file-earmark"></i>
+                <span>Data Administrasi</span>
+            </a>
+        </li><!-- End administrasi Nav -->
 
         <li class="nav-heading">Administrator</li>
-
-        <li class="nav-item">
-            <a class="nav-link {{ $route === 'administrator' ? '' : 'collapsed' }}"
-                href="/administrator/{{ auth()->user()->id }}">
-                <i class="bi bi-person"></i>
-                <span>Profil</span>
-            </a>
-        </li><!-- End Profile Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="/logout">

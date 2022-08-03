@@ -28,21 +28,9 @@
 						<h3 class="card-title text-black m-0">
 							Batik Tulis Sridadali
 						</h3>
-						<div class="d-flex justify-content-center gap-4">
-							<a href=""
-								><img
-									src="{{ asset('img/ic-shopee.png') }}"
-									alt="missing logo"
-									width="46"
-									height="46"
-							/></a>
-							<a href=""
-								><img
-									src="{{ asset('img/ic-shopee.png') }}"
-									alt="missing logo"
-									width="46"
-									height="46"
-							/></a>
+						<div class="">
+							<a href="" class="rounded-circle bg-dark"
+								><i class="bi bi-cart text-white fs-1 p-3"></i></a>
 						</div>
 					</div>
 					<p>
@@ -54,14 +42,12 @@
 					<div class="row align-items-center">
 						<div class="col-8">
 							<h6>Produk :</h6>
-							<a href="" class="wa"
-								><i class="fs-4 bi bi-whatsapp"></i>
-								0895394832984</a
-							>
+								<i class="fs-4 bi bi-whatsapp"></i>
+								<p>0895394832984</p>
 						</div>
 						<div class="col-4 d-flex justify-content-end">
 							<a
-								class="map-btn p-2"
+								class="map-btn p-2 text-white"
 								href="http://"
 								target="_blank"
 								rel="noopener noreferrer"

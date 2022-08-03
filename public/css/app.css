@@ -4,7 +4,6 @@
 # General
 --------------------------------------------------------------*/
 :root {
-    scroll-behavior: smooth;
     --color-primary: #73a9ad;
     --color-secondary: #d6ebc1;
     --hover-color-primary: #589195;
@@ -23,11 +22,13 @@ a {
 
 a:hover {
     color: inherit;
-    text-decoration: underline;
 }
 
 .bg-primary {
     background-color: var(--color-primary) !important;
+}
+.bg-primary:hover {
+    background-color: var(--hover-color-primary) !important;
 }
 .border-r-15 {
     border-radius: 15px;
@@ -36,7 +37,7 @@ a:hover {
     border-radius: 10px;
 }
 
-#main{
+#main {
     margin-top: 60px;
     padding: 20px 30px;
     transition: all 0.3s;
@@ -239,11 +240,10 @@ a:hover {
 }
 
 .card-title {
-    padding: 10px 0 30px 0;
+    padding: 20px 0 10px 0;
     font-size: 18px;
     font-weight: 500;
-    color: #6f6666;
-    font-family: "Poppins", sans-serif;
+    color: #000;
 }
 .card-title span {
     color: #899bbd;
@@ -251,20 +251,22 @@ a:hover {
     font-weight: 400;
 }
 .card-body {
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 10px 20px;
 }
 
 .card-img-overlay {
     background-color: rgba(255, 255, 255, 0.6);
 }
-.card .btn {
+.card .btn-login {
     background-color: var(--color-primary);
     padding: 10px 0;
     border: none;
     border-radius: 50px;
     transition: background-color ease-in-out 0.2s;
+    width: 100%;
+    color: #fff;
 }
-.card .btn:hover {
+.card .btn-login:hover {
     background-color: var(--hover-color-primary);
 }
 .copyright {
@@ -273,12 +275,6 @@ a:hover {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-}
-/* Alerts */
-.alert-heading {
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
-    font-size: 20px;
 }
 
 /* Close Button */
@@ -319,28 +315,6 @@ a:hover {
     font-size: 15px;
 }
 
-/* Breadcrumbs */
-.breadcrumb {
-    font-size: 14px;
-    font-family: "Nunito", sans-serif;
-    color: #899bbd;
-    font-weight: 600;
-}
-.breadcrumb a {
-    color: #899bbd;
-    transition: 0.3s;
-}
-.breadcrumb a:hover {
-    color: #51678f;
-}
-.breadcrumb .breadcrumb-item::before {
-    color: #899bbd;
-}
-.breadcrumb .active {
-    color: #51678f;
-    font-weight: 600;
-}
-
 /* Bordered Tabs */
 .nav-tabs-bordered {
     border-bottom: 2px solid #ebeef4;
@@ -377,9 +351,8 @@ a:hover {
 }
 .logo span {
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 600;
     color: #012970;
-    font-family: "Nunito", sans-serif;
 }
 
 .header {
@@ -473,7 +446,7 @@ a:hover {
 }
 .header-nav .nav-profile span {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .header-nav .badge-number {
     position: absolute;
@@ -634,10 +607,10 @@ a:hover {
     display: flex;
     align-items: center;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
     color: #4154f1;
     transition: 0.3;
-    background: #f6f9ff;
+    background: rgba(115, 169, 173, 0.1);
     padding: 10px 15px;
     border-radius: 4px;
 }
@@ -655,7 +628,7 @@ a:hover {
 }
 .sidebar-nav .nav-link:hover {
     color: #4154f1;
-    background: #f6f9ff;
+    background: rgba(115, 169, 173, 0.1);
 }
 .sidebar-nav .nav-link:hover i {
     color: #4154f1;
@@ -676,9 +649,9 @@ a:hover {
     display: flex;
     align-items: center;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     color: #012970;
-    transition: 0.3;
+    transition: 0.3s;
     padding: 10px 0 10px 40px;
     transition: 0.3s;
 }
@@ -809,6 +782,12 @@ a:hover {
 .dashboard .news .post-item + .post-item {
     margin-top: 15px;
 }
+.post-item p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .dashboard .news img {
     width: 80px;
     float: left;
@@ -821,11 +800,11 @@ a:hover {
     margin-bottom: 5px;
 }
 .dashboard .news h4 a {
-    color: #012970;
+    color: #000;
     transition: 0.3s;
 }
 .dashboard .news h4 a:hover {
-    color: #4154f1;
+    color: var(--color-primary);
 }
 .dashboard .news p {
     font-size: 14px;
@@ -890,7 +869,6 @@ a:hover {
     font-size: 2.5rem;
 }
 .iconslist .label {
-    font-family: var(--bs-font-monospace);
     display: inline-block;
     width: 100%;
     overflow: hidden;
@@ -1114,4 +1092,7 @@ a:hover {
     text-align: center;
     font-size: 13px;
     color: #012970;
+}
+.credits a:hover {
+    text-decoration: underline;
 }

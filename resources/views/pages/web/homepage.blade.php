@@ -10,7 +10,7 @@
 						Menyediakan informasi mengenai UMKM, Pariwisata serta
 						Profil di Desa Srigonco.
 					</p>
-					<a class="btn btn-selengkapnya">
+					<a class="btn btn-selengkapnya" href="#about">
 						<span>Selengkapnya</span>
 						<i class="bi bi-arrow-right"></i>
 					</a>
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="about">
+	<section class="about" id="about">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 d-flex justify-content-center flex-column">
@@ -284,23 +284,23 @@
 				<a href="{{ url('/berita') }}" class="news">Selengkapnya > </a>
 			</div>
 			<div class="row">
-				@foreach ($latest_news as $news)
+            @foreach ($latest_news as $news)
 				<div class="col-md-4 card-container">
 					<div class="card" style="width: 18rem">
 						<img
-							src="{{Storage::url('img-berita/'.$news->image)}}"
+							src="{{asset('storage/img-berita/'.$news->image)}}"
 							class="card-img-top"
 							alt="Missing Berita pic"
 						/>
 						<div class="card-body">
-							<agit
+							<a
 								href='{{ url("/berita/kategori/". $news->kategori->slug) }}'
 								class="badge bg-secondary text-black mb-2"
-								>{{ $news->kategori->kategori }}</agit add .
+								>{{ $news->kategori->kategori }}</a
 							>
 							<h5 class="card-title">{{ $news->judul }}</h5>
 							<p class="card-text news-content">
-								{{ $news->isi_berita }}
+								{!!  \Illuminate\Support\Str::limit($news->isi_berita, 150, $end='...') !!}
 							</p>
 							<a
 								href="{{ url('/berita/'. $news->slug) }}"

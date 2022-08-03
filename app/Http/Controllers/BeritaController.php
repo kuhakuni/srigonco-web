@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Berita;
 use App\Models\Kategori;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-
-use function PHPSTORM_META\map;
 
 class BeritaController extends Controller
 {
@@ -21,7 +20,7 @@ class BeritaController extends Controller
 
     public function index()
     {
-        $berita = Berita::all();
+        $berita = Berita::latest()->get();
         $kategori = Kategori::all();
         return view("pages.admin.berita", [
             "route" => "berita",
@@ -37,8 +36,13 @@ class BeritaController extends Controller
         return view("pages.web.berita", [
             "route" => "berita",
             "title" => "Berita | Portal Srigonco",
-            "berita" => Berita::all(),
-            "categories" => Kategori::all(),
+            "berita" => DB::table("berita")
+                ->orderBy("created_at", "desc")
+                ->paginate(5),
+            "categories" => Kategori::orderBy("kategori")->get(),
+            "recent_news" => Berita::latest()
+                ->limit(3)
+                ->get(),
         ]);
     }
 
@@ -53,6 +57,9 @@ class BeritaController extends Controller
             "title" => "Berita | Portal Srigonco",
             "berita" => $berita,
             "categories" => Kategori::all(),
+            "recent_news" => Berita::latest()
+                ->limit(3)
+                ->get(),
         ]);
     }
     /**
@@ -60,15 +67,22 @@ class BeritaController extends Controller
      */
     public function show_by_kategori($slug)
     {
-        $kategori = Kategori::where("slug", $slug)->get();
-        $berita = $kategori->isEmpty()
-            ? []
-            : Berita::where("kategori_id", $kategori[0]->id)->get();
+        try {
+            $kategori = Kategori::where("slug", $slug)->get[0];
+            $berita = Berita::where("id_kategori", $kategori->id)->paginate(5);
+        } catch (\Throwable $th) {
+            $kategori = null;
+            $berita = null;
+        }
         return view("pages.web.berita", [
             "route" => "berita",
             "title" => "Berita | Portal Srigonco",
             "berita" => $berita,
+            "kategori" => $kategori,
             "categories" => Kategori::all(),
+            "recent_news" => Berita::latest()
+                ->limit(3)
+                ->get(),
         ]);
     }
     /**
@@ -88,24 +102,33 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $gambar = $request->file("gambar");
-        $ext = $gambar->extension();
-        $name = time() . "." . $ext;
-        // dd($request);
-        // $isi = nl2br($request->isi, false);
-        $gambar->storeAs("public/img-berita/", $name);
-        // dd($isi);
+        $validatedData = $request->validate([
+            "judul" => "required",
+            "kategori" => "required",
+            "isi" => "required",
+            "gambar" => "image|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
+        ]);
+        // dd($validatedData);
+        if (isset($validatedData["gambar"])) {
+            $gambar = $validatedData["gambar"];
+            $ext = $gambar->extension();
+            $name = "berita-" . time() . "." . $ext;
+            $gambar->storeAs("public/img-berita/", $name);
+        } else {
+            $name = "template.jpg";
+        }
+        $slug = Str::slug($validatedData["judul"]);
         try {
             Berita::create([
-                "judul" => $request->judul,
+                "judul" => $validatedData["judul"],
                 "image" => $name,
-                "slug" => Str::slug($request->judul),
-                "isi_berita" => $request->isi,
-                "id_kategori" => $request->kategori,
+                "slug" => $slug,
+                "isi_berita" => $validatedData["isi"],
+                "id_kategori" => $validatedData["kategori"],
             ]);
-            Alert::success(["Sukses!", "Data Berhasil Ditambahkan"]);
+            Alert::success("Sukses!", "Data Berhasil Ditambahkan");
         } catch (\Throwable $th) {
-            Alert::error("Tambah Data Gagal", "Judul Tidak Boleh Sama!");
+            Alert::error("Error", "Judul Tidak Boleh Sama!");
         }
 
         // dd($request->isi);
@@ -120,11 +143,16 @@ class BeritaController extends Controller
      */
     public function edit($slug)
     {
-        $berita = Berita::where("slug", $slug)->first();
+        try {
+            $berita = Berita::where("slug", $slug)->first();
+        } catch (\Throwable $th) {
+            $berita = null;
+        }
         $kategori = Kategori::all();
         return view("pages.admin.edit.edit-berita", [
             "route" => "berita",
             "berita" => $berita,
+            "edit" => true,
             "kategori" => $kategori,
         ]);
     }
@@ -169,8 +197,10 @@ class BeritaController extends Controller
         $filename = $berita->image;
         // dd($filename);
         $berita->delete();
-        Storage::delete("public/img-berita/" . $filename);
-        Alert::success(["Sukses!", "Data Berhasil Dihapus"]);
+        if ($filename !== "template.jpg") {
+            Storage::delete("public/img-berita/" . $filename);
+        }
+        Alert::success("Sukses!", "Data Berhasil Dihapus");
         return redirect()->back();
     }
 }

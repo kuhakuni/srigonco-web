@@ -27,27 +27,11 @@ class MainController extends Controller
             "title" => "Profil | Portal Srigonco",
         ]);
     }
-    public function detail_berita($id)
-    {
-        $berita = Berita::find($id);
-        return view("pages.web.berita_detail", [
-            "route" => "berita",
-            "berita" => $berita,
-            "title" => $berita->judul . " | Portal Srigonco",
-        ]);
-    }
     public function umkm()
     {
         return view("pages.web.umkm", [
             "route" => "umkm",
             "title" => "UMKM | Portal Srigonco",
-        ]);
-    }
-    public function pariwisata()
-    {
-        return view("pages.web.pariwisata", [
-            "route" => "pariwisata",
-            "title" => "Pariwisata | Portal Srigonco",
         ]);
     }
     public function administrasi()

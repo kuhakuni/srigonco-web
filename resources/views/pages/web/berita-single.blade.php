@@ -11,7 +11,7 @@
 					<article class="entry entry-single">
 						<div class="entry-img">
 							<img
-								src="{{ $news->image }}"
+								src="{{asset('storage/img-berita/' . $news->image) }}"
 								alt=""
 								class="img-fluid"
 							/>
@@ -29,7 +29,7 @@
 							</ul>
 						</div>
 
-						<div class="entry-content">{{ $news->isi_berita }}</div>
+						<div class="entry-content">{!! $news->isi_berita !!}</div>
 					</article>
 					<!-- End blog entry -->
 				</div>
@@ -40,7 +40,7 @@
 				<div class="col-lg-4">
 					<div class="sidebar">
 						<!-- End sidebar search formn-->
-						<h3 class="sidebar-title">Kate</h3>
+						<h3 class="sidebar-title">Kategori</h3>
 						<div class="sidebar-item categories">
 							<ul>
 								@foreach ($categories as $category)
@@ -57,46 +57,23 @@
 						<!-- End sidebar categories-->
 
 						<h3 class="sidebar-title">Berita Terbaru</h3>
+                        <hr>
 						<div class="sidebar-item recent-posts">
+                            @foreach ($recent_news as $news)
 							<div class="post-item clearfix">
 								<img
-									src="assets/img/blog/blog-recent-1.jpg"
-									alt=""
+                                    src="{{asset('storage/img-berita/' . $news->image) }}"
+									alt="Missing Berita Pic"
 								/>
 								<h4>
 									<a href="blog-single.html"
-										>Nihil blanditiis at in nihil autem</a
+										>{{ $news->judul }}</a
 									>
 								</h4>
-								<time datetime="2020-01-01">Jan 1, 2020</time>
+								<time>{{ date('d F Y',strtotime($news->updated_at)) }}</time>
 							</div>
-
-							<div class="post-item clearfix">
-								<img
-									src="assets/img/blog/blog-recent-2.jpg"
-									alt=""
-								/>
-								<h4>
-									<a href="blog-single.html"
-										>Quidem autem et impedit</a
-									>
-								</h4>
-								<time datetime="2020-01-01">Jan 1, 2020</time>
-							</div>
-
-							<div class="post-item clearfix">
-								<img
-									src="assets/img/blog/blog-recent-3.jpg"
-									alt=""
-								/>
-								<h4>
-									<a href="blog-single.html"
-										>Id quia et et ut maxime similique
-										occaecati ut</a
-									>
-								</h4>
-								<time datetime="2020-01-01">Jan 1, 2020</time>
-							</div>
+                            <hr>
+                            @endforeach
 						</div>
 						<!-- End sidebar recent posts-->
 					</div>
