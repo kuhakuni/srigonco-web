@@ -42,8 +42,11 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            "kategori" => "required|unique:kategori",
+        ]);
         Kategori::create([
-            "kategori" => $request->kategori,
+            "kategori" => $validatedData["kategori"],
             "slug" => Str::slug($request->kategori),
         ]);
         Alert::success("Sukses!!", "Data Berhasil Ditambahkan");

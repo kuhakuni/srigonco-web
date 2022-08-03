@@ -166,12 +166,18 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $slug)
     {
+        $validatedData = $request->validate([
+            "judul" => "required",
+            "kategori" => "required",
+            "isi" => "required |",
+            "gambar" => "image|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
+        ]);
         $berita = Berita::where("slug", $slug)->first();
         if ($request->file("gambar") != null) {
             $gblama = $berita->image;
             Storage::delete("public/img-berita/" . $gblama);
             $ext = $request->file("gambar")->extension();
-            $name = time() . "." . $ext;
+            $name = "berita-" . time() . "." . $ext;
             $request->file("gambar")->storeAs("public/img-berita/", $name);
             $berita->image = $name;
         }
