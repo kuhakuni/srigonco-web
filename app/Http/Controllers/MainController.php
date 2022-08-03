@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Pariwisata;
 use App\Models\Administrasi;
 use App\Models\KritikSaran;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -45,9 +46,11 @@ class MainController extends Controller
     }
     public function pariwisata()
     {
+        $pariwisata = Pariwisata::all();
         return view("pages.web.pariwisata", [
             "route" => "pariwisata",
             "title" => "Pariwisata | Portal Srigonco",
+            "pariwisata" => $pariwisata,
         ]);
     }
     public function administrasi()

@@ -15,7 +15,6 @@ class Pariwisata extends Model
         "deskripsi",
         "image",
         "alamat",
-        "no_telp",
         "url_gmaps",
     ];
 }

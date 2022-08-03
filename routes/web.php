@@ -46,7 +46,6 @@ Route::prefix("dashboard")->group(function () {
         // KATEGORI ROUTE
 
         // BERITA ROUTE
-<<<<<<< HEAD
         Route::prefix('berita')->group(function(){
             Route::controller(BeritaController::class)->group(function(){
                 Route::get('/', 'index');   
@@ -71,18 +70,6 @@ Route::prefix("dashboard")->group(function () {
             });
         });
         // PARIWISATA ROUTE
-=======
-        Route::prefix("berita")->group(function () {
-            Route::controller(BeritaController::class)->group(function () {
-                Route::get("/", "index");
-                Route::post("/", "store"); //ADD BERITA
-                Route::get("/edit/{slug}", "edit"); //EDIT BERITA
-                Route::get("/delete/{slug}", "destroy"); //DELETE BERITA
-                Route::post("/update/{slug}", "update"); //UPDATE BERITA
-            });
-        });
-        // BERITA ROUTE
->>>>>>> 64a1c8487ccfd6ebe0bd683597603d65536c3dd7
 
         // ADMINISTRASI ROUTE
         Route::prefix("administrasi")->group(function () {
