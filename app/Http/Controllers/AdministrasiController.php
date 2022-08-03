@@ -16,9 +16,9 @@ class AdministrasiController extends Controller
     public function index()
     {
         $admin = Administrasi::all();
-        return view('pages.admin.administrasi', [
-            'surat' => $admin,
-            'route' => 'administrasi'
+        return view("pages.admin.administrasi", [
+            "surat" => $admin,
+            "route" => "administrasi",
         ]);
     }
 
@@ -43,13 +43,13 @@ class AdministrasiController extends Controller
         try {
             //code...
             Administrasi::create([
-                'dokumen' => $request->judul,
-                'url_download' => $request->link_download,
-                'deskripsi' => $request->deskripsi,
+                "dokumen" => $request->judul,
+                "url_download" => $request->link_download,
+                "deskripsi" => $request->deskripsi,
             ]);
-            Alert::success('Sukses!', 'Data Berhasil Ditambahkan');
+            Alert::success("Sukses!", "Data Berhasil Ditambahkan");
         } catch (\Throwable $th) {
-            Alert::error('Error!', 'Data Gagal Ditambahkan');
+            Alert::error("Error!", "Data Gagal Ditambahkan");
         }
         return redirect()->back();
     }
@@ -96,13 +96,13 @@ class AdministrasiController extends Controller
      */
     public function destroy($id)
     {
-        $admin = Administrasi::find( $id, 'id')->first();
+        $admin = Administrasi::find($id, "id")->first();
         try {
             $admin->delete();
-            Alert::success('Sukses!', 'Data Berhasil Dihapus');
+            Alert::success("Sukses!", "Data Berhasil Dihapus");
         } catch (\Throwable $th) {
             //throw $th;
-            Alert::error('Error!', 'Data Gagal Dihapus');
+            Alert::error("Error!", "Data Gagal Dihapus");
         }
         return redirect()->back();
     }

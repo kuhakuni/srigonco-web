@@ -2,8 +2,9 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="/dashboard" class="logo d-flex align-items-center">
-        <span class="d-none d-lg-block">Admin Srigonco</span>
+      <a href="./" class="logo d-flex align-items-center">
+        <img src="{{ asset('img/logo.png') }}" alt="">
+        <span class="d-none d-sm-block">Admin Srigonco</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -15,29 +16,19 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            {{-- <img src="{{ asset('img/profile-img.jpg') }}" alt="Profile" class="rounded-circle"> --}}
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
+            <img src="{{ asset('img/profile-pic.jpg') }}" alt="foto-admin" class="rounded-circle">
+            {{-- <span class="dropdown-toggle ps-2">{{ auth()->user()->name }}</span> --}}
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
+                <i class="bi bi-person-fill fs-1"></i>
               <h6>{{ auth()->user()->name }}</h6>
-              <span>Administrator</span>
+              <span>Admin Portal Srigonco</span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="/administrator/{{ auth()->user()->id }}">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
             <li>
                 <a class="dropdown-item d-flex align-items-center" href="/logout">
                   <i class="bi bi-box-arrow-right"></i>

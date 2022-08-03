@@ -36,7 +36,7 @@
                   <form class="row g-3 needs-validation" method="POST" action="/login" novalidate>
                     @csrf
                     <div class="col-12">
-                        <input type="text" name="username" placeholder="Username" class="form-control @error('username') is-invalid @enderror" id="yourUsername" value="{{ old('username') }}" autofocus required>
+                        <input type="text" name="name" placeholder="Username" class="form-control @error('username') is-invalid @enderror" id="yourUsername" value="{{ old('username') }}" autofocus required>
                         @error('username')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -56,7 +56,7 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Masuk</button>
+                      <button class="btn btn-login" type="submit">Masuk</button>
                     </div>
                   </form>
 

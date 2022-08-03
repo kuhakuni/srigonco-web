@@ -1,31 +1,20 @@
 @extends('layouts.admin.template')
 @section('main')
-@include('components.header')
-@include('components.sidebar')
 <main id="main" class="main">
-
     <div class="pagetitle">
         <h1>Kategori Berita</h1>
-        {{-- <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Components</li>
-          <li class="breadcrumb-item active">Alerts</li>
-        </ol>
-      </nav> --}}
     </div><!-- End Page Title -->
-
     <section class="section">
         <div class="row">
             <form action="/dashboard/kategori" method="post">
                 @csrf
                 <label for="kategori" class="form-label">Kategori</label>
-                <input class="form-control" type="text" name="kategori" required>
-                <input type="submit" value="Tambah Data" class="btn text-white btn bg-primary my-2">
+                <input class="form-control" type="text" name="kategori" re  quired>
+                <input type="submit" value="Tambah Data" class="text-white btn bg-primary my-2">
             </form>
         </div>
 
-        <table class="table table-striped ">
+        <table class="table table-borderless datatable bg-white" id="datatable">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -45,13 +34,18 @@
                         {{-- <a class="btn bg-primary text-white"
                             href="{{ url("dashboard/kategori/edit/$k->slug") }}">Edit</a> --}}
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn bg-primary text-white" data-bs-toggle="modal"
+                        <button type="button" class="btn bg-warning text-white" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
-                            Edit
+                            <i class="bi bi-pencil-fill"></i>
                         </button>
                         <a class="btn btn-danger text-white"
+<<<<<<< HEAD
                             onclick="return confirm('Apakah Anda Yakin ingin menghapus data?')"
                             href="{{ url("dashboard/kategori/delete/$k->slug") }}">Hapus</a>
+=======
+                            onclick="confirm('Apakah Anda Yakin ingin menghapus data?')"
+                            href="{{ url("dashboard/kategori/delete/$k->slug") }}"><i class="bi bi-trash-fill"></i></a>
+>>>>>>> 292ab3902f1bbaa796571346a31fd4ff54a3992a
                     </td>
                 </tr>
                 <!-- Modal -->
@@ -72,8 +66,8 @@
                                         value="{{$k->kategori}}">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <input class="btn bg-primary text-white" type="submit" value="Simpan">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                <input class="btn bg-primary text-white" type="submit" value="Ubah">
                             </div>
                             </form>
                         </div>

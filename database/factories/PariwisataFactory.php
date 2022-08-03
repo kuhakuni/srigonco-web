@@ -22,8 +22,10 @@ class PariwisataFactory extends Factory
         return [
             "nama" => $nama,
             "slug" => $slug,
+            "deskripsi" => $this->faker->paragraph(2),
             "alamat" => $this->faker->address(),
             "no_telp" => $this->faker->phoneNumber(),
+            "image" => "template.jpg",
         ];
     }
 }

@@ -9,8 +9,7 @@
 					class="form-control"
 					type="text"
 					name="nama"
-					id=""
-					placeholder="Nama Pengirim"
+					placeholder="Nama"
 					required
 				/>
                 @error('nama')
@@ -22,8 +21,7 @@
 					class="form-control"
 					type="email"
 					name="email"
-					id=""
-					placeholder="Email Pengirim"
+					placeholder="Email"
 					required
 				/>
                @error('email')

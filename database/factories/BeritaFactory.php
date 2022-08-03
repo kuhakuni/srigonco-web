@@ -23,6 +23,7 @@ class BeritaFactory extends Factory
             "slug" => $slug,
             "isi_berita" => $this->faker->paragraphs(3, true),
             "id_kategori" => $this->faker->numberBetween(1, 5),
+            "image" => "template.jpg",
         ];
     }
 }
