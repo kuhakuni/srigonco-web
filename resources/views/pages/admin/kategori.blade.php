@@ -39,13 +39,8 @@
                             <i class="bi bi-pencil-fill"></i>
                         </button>
                         <a class="btn btn-danger text-white"
-<<<<<<< HEAD
-                            onclick="return confirm('Apakah Anda Yakin ingin menghapus data?')"
-                            href="{{ url("dashboard/kategori/delete/$k->slug") }}">Hapus</a>
-=======
                             onclick="confirm('Apakah Anda Yakin ingin menghapus data?')"
                             href="{{ url("dashboard/kategori/delete/$k->slug") }}"><i class="bi bi-trash-fill"></i></a>
->>>>>>> 292ab3902f1bbaa796571346a31fd4ff54a3992a
                     </td>
                 </tr>
                 <!-- Modal -->
