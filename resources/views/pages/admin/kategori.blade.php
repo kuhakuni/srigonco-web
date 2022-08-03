@@ -9,7 +9,10 @@
             <form action="/dashboard/kategori" method="post">
                 @csrf
                 <label for="kategori" class="form-label">Kategori</label>
-                <input class="form-control" type="text" name="kategori" re  quired>
+                <input class="form-control @error('kategori') is-invalid @enderror" type="text" name="kategori" required>
+                @error('kategori')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
                 <input type="submit" value="Tambah Data" class="text-white btn bg-primary my-2">
             </form>
         </div>
@@ -57,8 +60,7 @@
                                 <form action="/dashboard/kategori/update/{{$k->slug}}" method="post">
                                     @csrf
                                     <label for="kategori" class="form-label">Nama Kategori</label>
-                                    <input class="form-control" type="text" name="kategori" id=""
-                                        value="{{$k->kategori}}">
+                                    <input class="form-control" type="text" name="kategori" id="" value="{{$k->kategori}}" required>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

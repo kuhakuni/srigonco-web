@@ -3,7 +3,9 @@
 @include('components.header')
 @include('components.sidebar')
 <main id="main" class="main">
-
+    @if (!empty($berita))
+        
+    
     <div class="pagetitle">
         <h1>Ubah Data Berita</h1>
     </div><!-- End Page Title -->
@@ -11,7 +13,7 @@
     <section class="section p-4 rounded-2 bg-white">
         <div class="row">
             <form
-            action="/dashboard/berita"
+            action="/dashboard/berita/update/{{ $berita->slug }}"
             method="post"
             enctype="multipart/form-data"
             id="berita"
@@ -33,16 +35,34 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="gambar" class="form-label"
+            <div class="mb-3 d-flex flex-column">
+                <label for="gambar" class="form-label mb-2"
                     >Gambar Berita</label
                 >
+                <img
+                    src="{{asset('storage/img-berita/' . $berita->image) }}"
+                    alt="Missing Berita Pic"
+                    style="max-width: 300px; margin-bottom: 1rem;"
+                    id="preview-pic"
+                />
                 <input
                     type="file"
                     name="gambar"
+                    placeholder="test"
                     id="gambar"
                     class="form-control form-group"
+                    style="max-width: 50%"
+                    onchange="previewImg(event)"
                 />
+                <script>
+                       const previewImg = function (event) {
+                        const img = document.getElementById("preview-pic");
+                        img.src = URL.createObjectURL(event.target.files[0]);
+                        img.onload = () => {
+                            URL.revokeObjectURL(img.src);
+                        };
+                    };
+                </script>
                 @error('gambar')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -89,5 +109,8 @@
         </form>
         </div>
     </section>
+    @else
+        <h1>Berita Tidak Ditemukan</h1>
+    @endif
 </main>
 @endsection

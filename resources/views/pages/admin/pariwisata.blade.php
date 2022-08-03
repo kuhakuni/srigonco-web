@@ -1,50 +1,45 @@
 @extends('layouts.admin.template') @section('main')
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Data Berita</h1>
+        <h1>Data Pariwisata</h1>
     </div>
     <!-- End Page Title -->
 
     <section class="section">
-        <table class="table table-borderless datatable" id="datatable">
+        <table class="table table-borderless datatable bg-white">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Judul</th>
-                    <th scope="col">Kategori</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">No Telepon</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
 
-            {{-- <tbody>
-                @php $i=1; @endphp @foreach ($berita as $b)
+            <tbody>
+                @php $i=1; @endphp @foreach ($pariwisata as $p)
                 <tr class="align-middle">
                     <th scope="row">{{ $i++; }}</th>
-                    <td>{{$b->judul}}</td>
-                    <td>{{$b->kategori->kategori}}</td>
+                    <td>{{$p->nama}}</td>
+                    <td>{{$p->alamat}}</td>
+                    <td>{{$p->no_telp}}</td>
                     <td>
                         <a
-                            class="btn bg-primary text-white"
-                            href="{{ url('berita/' . $b->slug) }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            ><i class="bi bi-eye-fill"></i
-                        ></a>
-                        <a
                             class="btn bg-warning text-white"
-                            href="{{ url('dashboard/berita/edit/' . $b->slug) }}"
+                            href="{{ url('dashboard/pariwisata/edit/' . $p->slug) }}"
                             ><i class="bi bi-pencil-fill"></i
                         ></a>
                         <a
                             class="btn btn-danger text-white"
                             onclick="return confirm('Apakah anda yakin akan menghapus berita tersebut?')"
-                            href="{{ url('dashboard/berita/delete/' . $b->slug) }}"
+                            href="{{ url('dashboard/pariwisata/delete/' . $p->slug) }}"
                             ><i class="bi bi-trash-fill"></i
                         ></a>
                     </td>
                 </tr>
                 @endforeach
-            </tbody> --}}
+            </tbody>
         </table>
         <hr />
         <div class="card p-4">

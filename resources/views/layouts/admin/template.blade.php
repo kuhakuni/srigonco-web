@@ -66,11 +66,11 @@
                     quill.root.innerHTML;
             });
         </script>
-        @isset($edit)
+        @if(isset($edit) && !empty($berita))
             <script>
                 quill.root.innerHTML = '{!! $berita->isi_berita !!}';
             </script>
-        @endisset
+        @endif
         @endif  
 
         <!-- Template Main JS File -->

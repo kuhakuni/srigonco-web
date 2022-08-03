@@ -42,6 +42,7 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         try {
             //code...
             Kategori::create([
@@ -56,6 +57,16 @@ class KategoriController extends Controller
             //throw $th;
             Alert::error('Data Gagal Ditambahkan!!', 'Nama Kategori Harus Berbeda!!');
         }
+=======
+        $validatedData = $request->validate([
+            "kategori" => "required|unique:kategori",
+        ]);
+        Kategori::create([
+            "kategori" => $validatedData["kategori"],
+            "slug" => Str::slug($request->kategori),
+        ]);
+        Alert::success("Sukses!!", "Data Berhasil Ditambahkan");
+>>>>>>> c2d5878a9589f5be9d65880aa6270be3ac663996
         return redirect()->back();
     }
 
