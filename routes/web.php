@@ -7,6 +7,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\PariwisataController;
+use App\Http\Controllers\UmkmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,13 +49,14 @@ Route::prefix("dashboard")->group(function () {
         // KATEGORI ROUTE
 
         // BERITA ROUTE
-        Route::prefix("berita")->group(function () {
-            Route::controller(BeritaController::class)->group(function () {
-                Route::get("/", "index");
-                Route::post("/", "store"); //ADD BERITA
-                Route::get("/edit/{slug}", "edit"); //EDIT BERITA
-                Route::get("/delete/{slug}", "destroy"); //DELETE BERITA
-                Route::post("/update/{slug}", "update"); //UPDATE BERITA
+        Route::prefix('berita')->group(function(){
+            Route::controller(BeritaController::class)->group(function(){
+                Route::get('/', 'index');   
+                Route::get('/tambah', 'create'); // SHOW FORM ADD BERITA    
+                Route::post('/', 'store'); //ADD BERITA
+                Route::get('/edit/{slug}', 'edit'); //EDIT BERITA
+                Route::get('/delete/{slug}', 'destroy'); //DELETE BERITA
+                Route::post('/update/{slug}', 'update'); //UPDATE BERITA
             });
         });
         // Pariwisata ROUTE
@@ -69,17 +71,30 @@ Route::prefix("dashboard")->group(function () {
             });
         });
         // BERITA ROUTE
-        // BERITA ROUTE
+        // UMKM ROUTE
         Route::prefix("umkm")->group(function () {
-            Route::controller(BeritaController::class)->group(function () {
+            Route::controller(UmkmController::class)->group(function () {
                 Route::get("/", "index");
-                Route::post("/", "store"); //ADD BERITA
-                Route::get("/edit/{slug}", "edit"); //EDIT BERITA
-                Route::get("/delete/{slug}", "destroy"); //DELETE BERITA
-                Route::post("/update/{slug}", "update"); //UPDATE BERITA
+                Route::post("/", "store"); //ADD UMKM
+                Route::get("/edit/{slug}", "edit"); //EDIT UMKM
+                Route::get("/delete/{slug}", "destroy"); //DELETE UMKM
+                Route::post("/update/{slug}", "update"); //UPDATE UMKM
             });
         });
-        // BERITA ROUTE
+        // UMKM ROUTE
+        
+        // PARIWISATA ROUTE
+        Route::prefix('pariwisata')->group(function(){
+            Route::controller(PariwisataController::class)->group(function(){
+                Route::get('/', 'index');   
+                Route::get('/tambah', 'create'); // SHOW FORM ADD PARIWISATA    
+                Route::post('/', 'store'); //ADD PARIWISATA
+                Route::get('/edit/{slug}', 'edit'); //EDIT PARIWISATA
+                Route::get('/delete/{slug}', 'destroy'); //DELETE PARIWISATA
+                Route::post('/update/{slug}', 'update'); //UPDATE PARIWISATA
+            });
+        });
+        // PARIWISATA ROUTE
 
         // ADMINISTRASI ROUTE
         Route::prefix("administrasi")->group(function () {

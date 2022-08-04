@@ -168,9 +168,65 @@
 				data-bs-ride="carousel"
 			>
 				<div class="carousel-inner">
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<img
+									src="img/batik-tulis.png"
+									class="d-block w-100 img-carousel"
+									alt="Missing UMKM Pic"
+								/>
+							</div>
+							<div
+								class="col-md-6 d-flex flex-column justify-content-center"
+							>
+								<h5 class="carousel-title">UMKM SRIGONCO</h5>
+								<p class="carousel-subtitle">Batik Tulis</p>
+								<p class="carousels-content">
+                                    {{ \Illuminate\Support\Str::limit("Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Sunt impedit excepturi
+									voluptatum! Fuga doloremque maxime totam
+									modi! Incidunt velit exercitationem porro ad
+									hic delectus dolor.", 200, $end='...') }}
+									
+								</p>
+								<div>
+									<a href="#" class="btn">Selengkapnya</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<img
+									src="img/batik-tulis.png"
+									class="d-block w-100 img-carousel"
+									alt="Missing UMKM Pic"
+								/>
+							</div>
+							<div
+								class="col-md-6 d-flex flex-column justify-content-center"
+							>
+								<h5 class="carousel-title">UMKM SRIGONCO</h5>
+								<p class="carousel-subtitle">Batik Tulis</p>
+								<p class="carousels-content">
+                                    {{ \Illuminate\Support\Str::limit("Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Sunt impedit excepturi
+									voluptatum! Fuga doloremque maxime totam
+									modi! Incidunt velit exercitationem porro ad
+									hic delectus dolor.", 200, $end='...') }}
+									
+								</p>
+								<div>
+									<a href="#" class="btn">Selengkapnya</a>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="carousel-item active">
 						<div class="row">
-							<div class="col-md-6 col-8">
+							<div class="col-md-6 mb-3">
 								<img
 									src="img/batik-tulis.png"
 									class="d-block w-100 img-carousel"
@@ -178,70 +234,17 @@
 								/>
 							</div>
 							<div
-								class="col-md-6 col-4 d-flex flex-column justify-content-center"
+								class="col-md-6 d-flex flex-column justify-content-center"
 							>
 								<h5 class="carousel-title">UMKM SRIGONCO</h5>
 								<p class="carousel-subtitle">Batik Tulis</p>
 								<p class="carousels-content">
-									Lorem ipsum dolor sit amet consectetur
+                                    {{ \Illuminate\Support\Str::limit("Lorem ipsum dolor sit amet consectetur
 									adipisicing elit. Sunt impedit excepturi
 									voluptatum! Fuga doloremque maxime totam
 									modi! Incidunt velit exercitationem porro ad
-									hic delectus dolor.
-								</p>
-								<div>
-									<a href="#" class="btn">Selengkapnya</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-md-6 col-8">
-								<img
-									src="img/batik-tulis.png"
-									class="d-block w-100 img-carousel"
-									alt="Missing UMKM Pic"
-								/>
-							</div>
-							<div
-								class="col-md-6 col-4 d-flex flex-column justify-content-center"
-							>
-								<h5 class="carousel-title">UMKM SRIGONCO</h5>
-								<p class="carousel-subtitle">Batik Tulis</p>
-								<p class="carousels-content">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Sunt impedit excepturi
-									voluptatum! Fuga doloremque maxime totam
-									modi! Incidunt velit exercitationem porro ad
-									hic delectus dolor.
-								</p>
-								<div>
-									<a href="#" class="btn">Selengkapnya</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-md-6 col-8">
-								<img
-									src="img/batik-tulis.png"
-									class="d-block w-100 img-carousel"
-									alt="Missing UMKM Pic"
-								/>
-							</div>
-							<div
-								class="col-md-6 col-4 d-flex flex-column justify-content-center"
-							>
-								<h5 class="carousel-title">UMKM SRIGONCO</h5>
-								<p class="carousel-subtitle">Batik Tulis</p>
-								<p class="carousels-content">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Sunt impedit excepturi
-									voluptatum! Fuga doloremque maxime totam
-									modi! Incidunt velit exercitationem porro ad
-									hic delectus dolor.
+									hic delectus dolor.", 200, $end='...') }}
+									
 								</p>
 								<div>
 									<a href="#" class="btn">Selengkapnya</a>

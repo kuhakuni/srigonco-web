@@ -24,6 +24,7 @@ a:hover {
     color: inherit;
 }
 
+
 .bg-primary {
     background-color: var(--color-primary) !important;
 }

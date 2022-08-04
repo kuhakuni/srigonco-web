@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Pariwisata;
 use App\Models\Administrasi;
 use App\Models\KritikSaran;
 use RealRashid\SweetAlert\Facades\Alert;

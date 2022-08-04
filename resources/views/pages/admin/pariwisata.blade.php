@@ -72,7 +72,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="gambar" class="form-label"
-                            >Foto Pariwisata <span class="text-muted">(Max. 2 MB)</span></label
+                            >Foto Pariwisata <span class="text-muted">(max. 2 MB)</span></label
                         >
                         <input
                             type="file"

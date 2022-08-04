@@ -88,7 +88,8 @@ img {
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background: url("../img/bg-hero.png") no-repeat center center;
+    background: url("https://res.cloudinary.com/kuhakuni/image/upload/v1659544872/ttu8sxmfn814umct66lw.png")
+        no-repeat center center;
     background-size: cover;
 }
 .hero .col-md-6 > * {

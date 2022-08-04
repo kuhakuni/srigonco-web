@@ -61,26 +61,56 @@
 				</div>
 				<!-- End blog entries list -->
 
-				<div class="col-lg-4">
-					<div class="sidebar">
-						<!-- End sidebar search formn-->
-						<h3 class="sidebar-title">Kategori</h3>
-						<div class="sidebar-item categories">
-							<ul>
-								@foreach ($categories as $category)
-								<li>
-									<a
-										href="{{ url('berita/kategori/'. $category->slug) }}"
-									>
-										{{ $category->kategori }}
-									</a>
-								</li>
-								@endforeach
-							</ul>
-						</div>
-						<!-- End sidebar categories-->
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <!-- End sidebar search formn-->
+                        <h3 class="sidebar-title">Kategori</h3>
+                        <div class="sidebar-item categories">
+                            <ul>
+                                @foreach ($categories as $category)
+                                <li>
+                                    <a href="{{ url('berita/kategori/'. $category->slug) }}">
+                                        {{ $category->kategori }}
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <!-- End sidebar categories-->
 
                         <h3 class="sidebar-title">Berita Terbaru</h3>
+<<<<<<< HEAD
+                        <div class="sidebar-item recent-posts">
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-1.jpg" alt="" />
+                                <h4>
+                                    <a href="blog-single.html">Nihil blanditiis at in nihil autem</a>
+                                </h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-2.jpg" alt="" />
+                                <h4>
+                                    <a href="blog-single.html">Quidem autem et impedit</a>
+                                </h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="assets/img/blog/blog-recent-3.jpg" alt="" />
+                                <h4>
+                                    <a href="blog-single.html">Id quia et et ut maxime similique
+                                        occaecati ut</a>
+                                </h4>
+                                <time datetime="2020-01-01">Jan 1, 2020</time>
+                            </div>
+                        </div>
+                        <!-- End sidebar recent posts-->
+                    </div>
+                    <!-- End sidebar -->
+                </div>
+=======
                         <hr>
 						<div class="sidebar-item recent-posts">
                             @foreach ($recent_news as $news)
@@ -103,24 +133,22 @@
 					</div>
 					<!-- End sidebar -->
 				</div>
+>>>>>>> 292ab3902f1bbaa796571346a31fd4ff54a3992a
 
-				<!-- End blog sidebar -->
-			</div>
-			@else
-			<div class="row">
-				<div class="col-md-6 text-center mx-auto">
-					<img
-						src="{{ asset('img/undraw_page_not_found_re_e9o6.svg') }}"
-						alt=""
-					/>
-					<p class="fs-2 fw-semibold mt-2">Berita Tidak Ditemukan</p>
-				</div>
-			</div>
+                <!-- End blog sidebar -->
+            </div>
+            @else
+            <div class="row">
+                <div class="col-md-6 text-center mx-auto">
+                    <img src="{{ asset('img/undraw_page_not_found_re_e9o6.svg') }}" alt="" />
+                    <p class="fs-2 fw-semibold mt-2">Berita Tidak Ditemukan</p>
+                </div>
+            </div>
 
-			@endif
-		</div>
-	</section>
-	<!-- End Blog Section -->
+            @endif
+        </div>
+    </section>
+    <!-- End Blog Section -->
 </main>
 <!-- End #main -->
 

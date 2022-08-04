@@ -30,6 +30,7 @@ class PariwisataController extends Controller
     }
     public function store(Request $request)
     {
+        // dd($request->no_telp);
         $validatedData = $request->validate([
             "nama" => "required",
             "gambar" => "bail|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
@@ -50,8 +51,8 @@ class PariwisataController extends Controller
                 "slug" => Str::slug($validatedData["nama"]),
                 "deskripsi" => $request->deskripsi,
                 "alamat" => $validatedData["alamat"],
-                "no_telp" => $request->no_telp,
                 "url_gmaps" => $request->url_gmaps,
+                'no_telp' => $request->no_telp,
                 "image" => $image_name,
             ]);
             Alert::success("Sukses!", "Data Berhasil Ditambahkan");

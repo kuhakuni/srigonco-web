@@ -1,7 +1,5 @@
 @extends('layouts.admin.template')
 @section('main')
-@include('components.header')
-@include('components.sidebar')
 <main id="main" class="main">
     @if (!empty($berita))
         
