@@ -173,9 +173,9 @@ class BeritaController extends Controller
             $request->file("gambar")->storeAs("public/img-berita/", $name);
             $berita->image = $name;
         }
-        $berita->judul = $request->judul;
-        $berita->isi_berita = $request->isi;
-        $berita->slug = Str::slug($request->judul);
+        $berita->judul = $validatedData["judul"];
+        $berita->isi_berita = $validatedData["isi"];
+        $berita->slug = Str::slug($validatedData["judul"]);
         $berita->id_kategori = $request->kategori;
         $berita->update();
 

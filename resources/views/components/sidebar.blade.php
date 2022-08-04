@@ -10,7 +10,7 @@
             </a>
         </li><!-- End dashboard Nav -->
         <li class="nav-item">
-            @if($route === 'berita' || $route === 'kategori' || $route === 'tambah_berita')
+            @if($route === 'berita' || $route === 'kategori' )
             <a class="nav-link" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-newspaper"></i><span>Berita</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -21,11 +21,6 @@
                 </a>
                 <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     @endif
-                    <li>
-                        <a href="{{ url('/dashboard/berita/tambah') }}" class="{{ $route === 'tambah_berita' ? "active" : "" }}">
-                            <i class="bi bi-circle"></i><span>Tambah Data Berita</span>
-                        </a>
-                    </li>
                     <li>
                         <a href="{{ url('/dashboard/berita') }}" class="{{ $route === 'berita' ? "active" : "" }}">
                             <i class="bi bi-circle"></i><span>Data Berita</span>

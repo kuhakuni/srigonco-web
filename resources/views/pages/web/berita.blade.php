@@ -79,38 +79,6 @@
                         <!-- End sidebar categories-->
 
                         <h3 class="sidebar-title">Berita Terbaru</h3>
-<<<<<<< HEAD
-                        <div class="sidebar-item recent-posts">
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-1.jpg" alt="" />
-                                <h4>
-                                    <a href="blog-single.html">Nihil blanditiis at in nihil autem</a>
-                                </h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-2.jpg" alt="" />
-                                <h4>
-                                    <a href="blog-single.html">Quidem autem et impedit</a>
-                                </h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/blog/blog-recent-3.jpg" alt="" />
-                                <h4>
-                                    <a href="blog-single.html">Id quia et et ut maxime similique
-                                        occaecati ut</a>
-                                </h4>
-                                <time datetime="2020-01-01">Jan 1, 2020</time>
-                            </div>
-                        </div>
-                        <!-- End sidebar recent posts-->
-                    </div>
-                    <!-- End sidebar -->
-                </div>
-=======
                         <hr>
 						<div class="sidebar-item recent-posts">
                             @foreach ($recent_news as $news)
@@ -133,7 +101,6 @@
 					</div>
 					<!-- End sidebar -->
 				</div>
->>>>>>> 292ab3902f1bbaa796571346a31fd4ff54a3992a
 
                 <!-- End blog sidebar -->
             </div>
