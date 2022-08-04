@@ -85,14 +85,6 @@ class BeritaController extends Controller
                 ->get(),
         ]);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -187,7 +179,7 @@ class BeritaController extends Controller
         $berita->id_kategori = $request->kategori;
         $berita->update();
 
-        Alert::success("Sukses!", "Data Berhasil Diupdate!");
+        Alert::success("Sukses!", "Data Berhasil Diubah!");
         return redirect("/dashboard/berita");
     }
 
