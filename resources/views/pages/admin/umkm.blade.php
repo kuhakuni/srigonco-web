@@ -11,11 +11,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Deskripsi</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">No Telepon</th>
-                    <th scope="col">Olshop</th>
-                    <th scope="col">Maps</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -25,11 +22,8 @@
                 <tr class="align-middle">
                     <th scope="row">{{ $i++; }}</th>
                     <td>{{$u->nama}}</td>
-                    <td>{{$u->deskripsi}}</td>
                     <td>{{$u->alamat}}</td>
                     <td>{{$u->no_telp}}</td>
-                    <td>{{$u->url_ecommerce}}</td>
-                    <td>{{$u->url_gmaps}}</td>
                     <td>
                         <a class="btn bg-warning text-white" href="{{ url('dashboard/umkm/edit/' . $u->slug) }}"><i
                                 class="bi bi-pencil-fill"></i></a>

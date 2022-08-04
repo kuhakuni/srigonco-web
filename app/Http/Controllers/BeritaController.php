@@ -68,8 +68,10 @@ class BeritaController extends Controller
     public function show_by_kategori($slug)
     {
         try {
-            $kategori = Kategori::where("slug", $slug)->get[0];
-            $berita = Berita::where("id_kategori", $kategori->id)->paginate(5);
+            $kategori = Kategori::where("slug", $slug)->first();
+            $berita = DB::table("berita")
+                ->where("id_kategori", $kategori->id)
+                ->paginate(5);
         } catch (\Throwable $th) {
             $kategori = null;
             $berita = null;

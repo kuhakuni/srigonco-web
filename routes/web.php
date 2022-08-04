@@ -120,7 +120,7 @@ Route::get("/berita/kategori/{slug}", [
     BeritaController::class,
     "show_by_kategori",
 ]);
-Route::get("/umkm", [MainController::class, "umkm"]);
+Route::get("/umkm", [UMKMController::class, "show"]);
 Route::get("/profil", [MainController::class, "profil"]);
 Route::get("/pariwisata", [PariwisataController::class, "show"]);
 Route::get("/administrasi", [MainController::class, "administrasi"]);

@@ -327,16 +327,6 @@ img {
     font-size: 28px;
     font-weight: bold;
     padding: 0;
-    margin: 0 0 20px 0;
-}
-
-.blog .entry .entry-title a {
-    color: #3c4133;
-    transition: 0.3s;
-}
-
-.blog .entry .entry-title a:hover {
-    color: #94c045;
 }
 
 .blog .entry .entry-meta {
@@ -572,12 +562,12 @@ img {
     text-align: justify;
 }
 /* Position child elements relative to this element */
-.aspect-ratio-box {
+.aspect-ratio {
     position: relative;
 }
 
 /* Create a pseudo element that uses padding-bottom to take up space */
-.aspect-ratio-box::after {
+.aspect-ratio::after {
     display: block;
     content: "";
     /* 16:9 aspect ratio */
@@ -585,7 +575,7 @@ img {
 }
 
 /* Image is positioned absolutely relative to the parent element */
-.aspect-ratio-box img {
+.aspect-ratio img {
     /* Image should match parent box size */
     position: absolute;
     left: 0;
@@ -657,11 +647,9 @@ footer .bi {
 }
 
 .header-img h1 {
-    font-size: 48px;
     font-weight: 700;
 }
 .header-img h2 {
-    font-size: 40px;
     font-weight: 600;
 }
 
@@ -680,6 +668,15 @@ footer .bi {
 .map-btn:hover {
     background-color: var(--hover-color-primary);
     text-decoration: none;
+}
+.cart-icon {
+    background-color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
 }
 /* ---------------------- END OF PARIWISATA & UMKM PAGE ------------------------- */
 

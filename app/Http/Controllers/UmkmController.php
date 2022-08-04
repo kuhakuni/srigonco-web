@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\UMKM;
+use Illuminate\Support\Facades\DB;
 
 class UmkmController extends Controller
 {
@@ -31,7 +32,6 @@ class UmkmController extends Controller
      */
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             "nama" => "required",
             "gambar" => "bail|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
@@ -53,8 +53,8 @@ class UmkmController extends Controller
                 "deskripsi" => $request->deskripsi,
                 "alamat" => $validatedData["alamat"],
                 "url_gmaps" => $request->url_gmaps,
-                'no_telp' => $request->no_telp,
-                'url_ecommerce' => $request->url_ecommerce,
+                "no_telp" => $request->no_telp,
+                "url_ecommerce" => $request->url_ecommerce,
                 "image" => $image_name,
             ]);
             Alert::success("Sukses!", "Data Berhasil Ditambahkan");
@@ -64,18 +64,23 @@ class UmkmController extends Controller
         }
 
         // dd($request->isi);
-        return redirect()->back();   
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view("pages.web.umkm", [
+            "route" => "umkm",
+            "title" => "UMKM | Portal Srigonco",
+            "umkm" => DB::table("umkm")
+                ->orderBy("nama", "asc")
+                ->paginate(3),
+        ]);
     }
 
     /**

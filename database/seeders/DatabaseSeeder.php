@@ -34,6 +34,6 @@ class DatabaseSeeder extends Seeder
         Kategori::factory(5)->create();
         Berita::factory(5)->create();
         KritikSaran::factory(5)->create();
-        User::factory(2)->create();
+        User::factory(1)->create();
     }
 }

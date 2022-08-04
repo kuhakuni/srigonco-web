@@ -168,11 +168,13 @@
 				data-bs-ride="carousel"
 			>
 				<div class="carousel-inner">
-					<div class="carousel-item">
+                    @php $i=1; @endphp
+                    @foreach ($umkm as $u)
+                <div class="carousel-item @if($i===1)active @endif">
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<img
-									src="img/batik-tulis.png"
+									src="{{ Storage::url('public/img-umkm/' . $u->image) }}"
 									class="d-block w-100 img-carousel"
 									alt="Missing UMKM Pic"
 								/>
@@ -181,77 +183,18 @@
 								class="col-md-6 d-flex flex-column justify-content-center"
 							>
 								<h5 class="carousel-title">UMKM SRIGONCO</h5>
-								<p class="carousel-subtitle">Batik Tulis</p>
+								<p class="carousel-subtitle">{{ $u->nama }}</p>
 								<p class="carousels-content">
-                                    {{ \Illuminate\Support\Str::limit("Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Sunt impedit excepturi
-									voluptatum! Fuga doloremque maxime totam
-									modi! Incidunt velit exercitationem porro ad
-									hic delectus dolor.", 200, $end='...') }}
-									
+                                    {{ \Illuminate\Support\Str::limit($u->deskripsi, 200, $end='...') }}
 								</p>
 								<div>
-									<a href="#" class="btn">Selengkapnya</a>
+									<a href="{{ url('/umkm') }}" class="btn">Selengkapnya</a>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-md-6 mb-3">
-								<img
-									src="img/batik-tulis.png"
-									class="d-block w-100 img-carousel"
-									alt="Missing UMKM Pic"
-								/>
-							</div>
-							<div
-								class="col-md-6 d-flex flex-column justify-content-center"
-							>
-								<h5 class="carousel-title">UMKM SRIGONCO</h5>
-								<p class="carousel-subtitle">Batik Tulis</p>
-								<p class="carousels-content">
-                                    {{ \Illuminate\Support\Str::limit("Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Sunt impedit excepturi
-									voluptatum! Fuga doloremque maxime totam
-									modi! Incidunt velit exercitationem porro ad
-									hic delectus dolor.", 200, $end='...') }}
-									
-								</p>
-								<div>
-									<a href="#" class="btn">Selengkapnya</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item active">
-						<div class="row">
-							<div class="col-md-6 mb-3">
-								<img
-									src="img/batik-tulis.png"
-									class="d-block w-100 img-carousel"
-									alt="Missing UMKM Pic"
-								/>
-							</div>
-							<div
-								class="col-md-6 d-flex flex-column justify-content-center"
-							>
-								<h5 class="carousel-title">UMKM SRIGONCO</h5>
-								<p class="carousel-subtitle">Batik Tulis</p>
-								<p class="carousels-content">
-                                    {{ \Illuminate\Support\Str::limit("Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Sunt impedit excepturi
-									voluptatum! Fuga doloremque maxime totam
-									modi! Incidunt velit exercitationem porro ad
-									hic delectus dolor.", 200, $end='...') }}
-									
-								</p>
-								<div>
-									<a href="#" class="btn">Selengkapnya</a>
-								</div>
-							</div>
-						</div>
-					</div>
+                    @php $i++ @endphp
+                    @endforeach
 				</div>
 				<button
 					class="carousel-control-prev"

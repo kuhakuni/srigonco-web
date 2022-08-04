@@ -73,6 +73,16 @@
     }
 
     /**
+     * Initiate tooltips
+     */
+    let tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    /**
      * Initiate Bootstrap validation check
      */
     let needsValidation = document.querySelectorAll(".needs-validation");

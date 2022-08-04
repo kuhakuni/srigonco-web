@@ -10,14 +10,15 @@
 		</div>
 	</div>
 	<div class="container p-4">
-		<div class="row">
-			<div class="card p-0 col-12 d-flex flex-lg-row flex-column my-2">
+		<div class="row mx-3">
+            @foreach ($umkm as $u)
+			<div class="card p-0 col-12 d-flex flex-lg-row flex-column my-3">
 				<div
 					class="col-lg-3 col-12 p-0 d-flex justify-content-lg-start justify-content-center"
 				>
 					<img
 						class="rounded-3 w-100"
-						src="{{ asset('img/batik.png') }}"
+						src="{{ Storage::url('public/img-umkm/' . $u->image) }}"
 						alt="Missing Photo"
 					/>
 				</div>
@@ -26,38 +27,31 @@
 						class="d-flex justify-content-between align-items-center my-2"
 					>
 						<h3 class="card-title text-black m-0">
-							Batik Tulis Sridadali
+							{{ $u->nama }}
 						</h3>
-						<div class="">
-							<a href="" class="rounded-circle bg-dark"
-								><i class="bi bi-cart text-white fs-1 p-3"></i></a>
-						</div>
+							<a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Link marketplace"
+								><i class="bi bi-cart fs-2 text-black"></i></a>
 					</div>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Viverra aenean tincidunt amet, sed quisque. Sit iaculis
-						congue aliquet consectetur sit. Quisque interdum at eget
-						cursus.
+						{{ $u->deskripsi }}
 					</p>
-					<div class="row align-items-center">
-						<div class="col-8">
-							<h6>Produk :</h6>
-								<i class="fs-4 bi bi-whatsapp"></i>
-								<p>0895394832984</p>
-						</div>
-						<div class="col-4 d-flex justify-content-end">
-							<a
-								class="map-btn p-2 text-white"
-								href="http://"
-								target="_blank"
-								rel="noopener noreferrer"
-								><i class="bi bi-geo-alt-fill"></i>Maps</a
-							>
-						</div>
-					</div>
+                    <div class="row align-items-center">
+                        <div class="col-sm-8">
+                            <p>Alamat : {{ $u->alamat }}</p>
+                            <p class="m-0">No. Telepon : {{ $u->no_telp }}</p>
+                        </div>
+                        <div class="col-sm-4 d-flex justify-content-center justify-content-sm-end mt-2">
+                            <a class="map-btn p-2 text-white d-flex gap-1" href="{{ $u->url_gmaps }}" target="_blank" rel="noopener noreferrer"><i
+                                    class="bi bi-geo-alt-fill"></i>Maps</a>
+                        </div>
+                    </div>
 				</div>
 			</div>
+            @endforeach
 		</div>
+        <div class="d-flex justify-content-center">
+            {!! $umkm->links() !!}
+        </div>
 	</div>
 </main>
 @endsection

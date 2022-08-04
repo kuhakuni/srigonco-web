@@ -28,13 +28,12 @@ class PariwisataController extends Controller
             "route" => "pariwisata",
             "title" => "Pariwisata | Portal Srigonco",
             "pariwisata" => DB::table("pariwisata")
-                ->orderBy("created_at", "desc")
+                ->orderBy("nama", "asc")
                 ->paginate(3),
         ]);
     }
     public function store(Request $request)
     {
-        // dd($request->no_telp);
         $validatedData = $request->validate([
             "nama" => "required",
             "gambar" => "bail|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
@@ -67,7 +66,6 @@ class PariwisataController extends Controller
             Alert::error("Error", "Terjadi Kesalahan");
         }
 
-        // dd($request->isi);
         return redirect()->back();
     }
     /**
