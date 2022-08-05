@@ -17,62 +17,40 @@
     @endif
     <section class="section p-4 rounded-2 bg-white">
         <div class="row">
-            <form
-            action="/dashboard/administrasi/update/{{ $a->id }}"
-            method="post"
-            enctype="multipart/form-data"
-            id="berita"
-             >
-            @csrf
-            <div class="mb-3">
-                <label for="nama" class="form-label"
-                    >Nama Dokumen</label
-                >
-                <input
-                    type="text"
-                    name="nama"
-                    id="nama"
-                    class="form-control form-group @error('nama') is-invalid @enderror"
-                    value="{{$a->dokumen}}"
-                    required
-                />
-                @error('nama')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="url_download" class="form-label"
-                    >Link Download</label
-                >
-                <input
-                    type="text"
-                    name="url_download"
-                    id="url_download"
-                    class="form-control form-group @error('url_download') is-invalid @enderror"
-                    value="{{$a->url_download}}"
-                />
-                @error('url_download')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
+            <form action="/dashboard/administrasi/update/{{ $a->id }}" method="post" enctype="multipart/form-data"
+                id="berita">
+                @csrf
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama Dokumen</label>
+                    <input type="text" name="nama" id="nama"
+                        class="form-control form-group @error('nama') is-invalid @enderror" value="{{$a->nama}}"
+                        required />
+                    @error('nama')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="file" class="form-label">File Dokumen</label>
+                    <input type="file" name="file" id="file" class="form-control form-group" />
+                    @error('file')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
-            <div class="mb-3">
-                <label for="deskripsi" class="form-label">Deskripsi</label>
-                <textarea class="form-control form-group @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi" cols="30" rows="10" required>{{ $a->deskripsi }}</textarea>
-                @error('deskripsi')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <input
-                type="submit"
-                value="Ubah Data"
-                class="text-white btn bg-primary"
-            />
-        </form>
+                <div class="mb-3">
+                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                    <textarea class="form-control form-group @error('deskripsi') is-invalid @enderror" name="deskripsi"
+                        id="deskripsi" cols="30" rows="10" required>{{ $a->deskripsi }}</textarea>
+                    @error('deskripsi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <input type="submit" value="Ubah Data" class="text-white btn bg-primary" />
+            </form>
         </div>
     </section>
     @else
-        <h1>Dokumen Tidak Ditemukan</h1>
+    <h1>Dokumen Tidak Ditemukan</h1>
     @endif
 </main>
 @endsection

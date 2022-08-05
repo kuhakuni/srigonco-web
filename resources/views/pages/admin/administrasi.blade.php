@@ -21,9 +21,9 @@
                 @php $i=1; @endphp @foreach ($admin as $a)
                 <tr class="align-middle">
                     <th scope="row">{{ $i++; }}</th>
-                    <td>{{$a->dokumen}}</td>
+                    <td>{{$a->nama}}</td>
                     <td>{{$a->deskripsi}}</td>
-                    <td> <a target="_blank" href="{{$a->url_download}}" class="btn btn-primary"> <i class="bi bi-download"></i> </a> </td>
+                    <td> <a href="{{ url('/download/dokumen/'. $a->file) }}" class="btn btn-primary"> <i class="bi bi-download"></i> </a> </td>
                     <td>
                         <a class="btn bg-warning text-white" href="{{ url('dashboard/administrasi/edit/' . $a->id) }}"><i
                                 class="bi bi-pencil-fill"></i></a>
@@ -53,11 +53,16 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="url_download" class="form-label">Alamat</label>
-                        <input type="text" name="url_download" id="url_download"
-                            placeholder="https://drive.google.com/file/d/1n08KsuVMBK...."
-                            class="form-control form-group @error('url_download') is-invalid @enderror" required />
-                        @error('alamat')
+                        <label for="file" class="form-label"
+                            >File Dokumen</label
+                        >
+                        <input
+                            type="file"
+                            name="file"
+                            id="file"
+                            class="form-control form-group"
+                        />
+                        @error('file')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

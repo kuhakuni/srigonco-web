@@ -125,4 +125,5 @@ Route::get("/profil", [MainController::class, "profil"]);
 Route::get("/pariwisata", [PariwisataController::class, "show"]);
 Route::get("/administrasi", [MainController::class, "administrasi"]);
 Route::post("/feedback", [MainController::class, "feedback"]);
+Route::get("/download/dokumen/{slug}",[AdministrasiController::class, "download"]); //DOWNLOAD DOKUMEN
 // ============================== MAIN ROUTE ==========================

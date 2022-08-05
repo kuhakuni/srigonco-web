@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Administrasi;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class AdministrasiController extends Controller
 {
@@ -40,21 +42,28 @@ class AdministrasiController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            "nama" => "required",
-            "url_download" => "required"
-        ]);
         try {
+            // dd($request->file);
+            $validatedData = $request->validate([
+                "nama" => "required",
+                "file" => "required"
+            ]);
             //code...
+            if (isset($validatedData['file'])) {
+                $file = $validatedData['file'];
+                $ext = $file->extension();
+                $name = Str::slug($validatedData['nama']) . "." . $ext;
+                $file->storeAs("public/dokumen-administrasi/", $name);
+            }
             Administrasi::create([
-                "dokumen" => $validatedData["nama"],
-                "url_download" => $validatedData["url_download"],
+                "nama" => $validatedData["nama"],
+                "file" => $name,
                 "deskripsi" => $request->deskripsi,
             ]);
             Alert::success("Sukses!", "Data Berhasil Ditambahkan");
         } catch (\Throwable $th) {
-            // dd($th);
-            Alert::error("Error!", "Data Gagal Ditambahkan");
+            dd($th);
+            // Alert::error("Error!", "Data Gagal Ditambahkan");
         }
         return redirect()->back();
     }
@@ -67,7 +76,6 @@ class AdministrasiController extends Controller
      */
     public function show(Request $request)
     {
-        
     }
 
     /**
@@ -99,12 +107,18 @@ class AdministrasiController extends Controller
             //code...
             $validatedData = $request->validate([
                 "nama" => "required",
-                "url_download" => "required"
+                "file" => ""
             ]);
-            
             $administrasi = Administrasi::where('id', $id)->first();
-            $administrasi->dokumen = $validatedData["nama"];
-            $administrasi->url_download = $validatedData["url_download"];
+            if ($request->file("file") != null) {
+                $oldname = $administrasi->file;
+                Storage::delete("public/dokumen-administrasi/" . $oldname);
+                $ext = $request->file("file")->extension();
+                $name = Str::slug($validatedData['nama']) . "." . $ext;
+                $request->file("file")->storeAs("public/dokumen-administrasi/", $name);
+                $administrasi->file = $name;
+            }
+            $administrasi->nama = $validatedData["nama"];
             $administrasi->deskripsi = $request->deskripsi;
             $administrasi->update();
             Alert::success("Sukses!", "Data Berhasil Diubah");
@@ -125,6 +139,7 @@ class AdministrasiController extends Controller
     {
         $admin = Administrasi::find($id, "id")->first();
         try {
+            Storage::delete("public/dokumen-administrasi/" . $admin->file);
             $admin->delete();
             Alert::success("Sukses!", "Data Berhasil Dihapus");
         } catch (\Throwable $th) {
@@ -132,5 +147,17 @@ class AdministrasiController extends Controller
             Alert::error("Error!", "Data Gagal Dihapus");
         }
         return redirect()->back();
+    }
+
+    public function download($slug)
+    {
+        $path = Storage::disk('public')->path("dokumen-administrasi/" . $slug);
+        $content = file_get_contents($path);
+
+        $headers = [
+            'Content-Description' => 'File Transfer',
+            'Content-Type' => 'application/pdf',
+        ];
+        return response($content)->withHeaders($headers);
     }
 }

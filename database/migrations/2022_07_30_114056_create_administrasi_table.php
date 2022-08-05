@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('administrasi', function (Blueprint $table) {
             $table->id();
-            $table->string('dokumen')->unique();
-            $table->string('url_download')->unique();
+            $table->string('nama')->unique();
+            $table->string('file')->unique();
             $table->text('deskripsi');
             $table->timestamps();
         });

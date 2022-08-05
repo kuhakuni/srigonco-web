@@ -14,8 +14,8 @@ class Administrasi extends Model
      * @var array
      */
     protected $fillable = [
-        "dokumen",
-        "url_download",
+        "nama",
+        "file",
         "deskripsi",
     ];
 }
