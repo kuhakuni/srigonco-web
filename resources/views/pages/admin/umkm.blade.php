@@ -46,7 +46,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama UMKM</label>
-                        <input type="text" name="nama" id="nama"
+                        <input type="text" name="nama" id="nama" placeholder="Keripik Pisang..."
                             class="@error('nama') is-invalid @enderror form-control form-group" required />
                         @error('nama')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -63,7 +63,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" id="alamat"
+                        <input type="text" name="alamat" id="alamat" placeholder="Jl. Balekambang No.17, Srigonco, Bantur"
                             class="form-control form-group @error('alamat') is-invalid @enderror" required />
                         @error('alamat')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -74,7 +74,7 @@
                             <div class="col-md-6">
                                 <label for="no_telp" class="form-label">Nomor Telepon <span class="text-muted">(bila
                                         ada)</span></label>
-                                <input type="number" name="no_telp" id="no_telp"
+                                <input type="number" name="no_telp" id="no_telp" placeholder="081234567890"
                                     class="form-control form-group @error('no_telp') is-invalid @enderror" />
                                 @error('no_telp')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -83,7 +83,7 @@
                             <div class="col-md-6">
                                 <label for="url_gmaps" class="form-label">Link Google Maps <span
                                         class="text-muted">(bila ada)</span></label>
-                                <input type="text" name="url_gmaps" id="url_gmaps"
+                                <input type="text" name="url_gmaps" id="url_gmaps" placeholder="https://goo.gl/maps/Rne1vvv4wpoCia4j7"
                                     class="form-control form-group @error('url_gmaps') is-invalid @enderror" />
                                 @error('url_gmaps')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -94,7 +94,7 @@
                     <div class="mb-3">
                         <label for="url_ecommerce" class="form-label">E-commerce UMKM <span class="text-muted">(bila ada)</span> </label>
                         <input type="text" name="url_ecommerce" id="url_ecommerce"
-                            class="@error('url_ecommerce') is-invalid @enderror form-control form-group" required />
+                            class="@error('url_ecommerce') is-invalid @enderror form-control form-group" placeholder="https://shopee.co.id/Keripik-Pisang-Original...." required />
                         @error('url_ecommerce')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -103,7 +103,7 @@
             <div class="mb-3">
                 <label for="deskripsi" class="form-label">Deksripsi</label>
                 <textarea class="form-control form-group @error('deskripsi') is-invalid @enderror" name="deskripsi"
-                    id="deskripsi" cols="30" rows="10" required></textarea>
+                    id="deskripsi" cols="30" rows="10" placeholder="UMKM yang menghasilkan keripik pisang..." required></textarea>
                 @error('deskripsi')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

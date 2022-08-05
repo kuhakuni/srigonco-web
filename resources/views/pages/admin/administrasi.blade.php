@@ -1,35 +1,12 @@
-@extends('layouts.admin.template')
-@section('main')
-@include('components.header')
-@include('components.sidebar')
+@extends('layouts.admin.template') @section('main')
 <main id="main" class="main">
-
     <div class="pagetitle">
-        <h1>Data Dokumen</h1>
-        {{-- <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Components</li>
-          <li class="breadcrumb-item active">Alerts</li>
-        </ol>
-      </nav> --}}
-    </div><!-- End Page Title -->
+        <h1>Data Dokumen Administrasi</h1>
+    </div>
+    <!-- End Page Title -->
 
     <section class="section">
-        <div class="row">
-            <form action="/dashboard/administrasi" method="post" enctype="multipart/form-data">
-                @csrf
-                <label for="judul" class="form-label">Judul Dokumen</label>
-                <input type="text" name="judul" class="form-control form-group" required>
-                <label for="deskripsi" class="form-label">Deskripsi Dokumen</label>
-                <textarea class="form-control my-2" name="deskripsi" id="" cols="30" rows="10"></textarea>
-                <label for="link_download" class="form-label">Link Download</label>
-                <input type="text" name="link_download" class="form-control form-group my-2" required>
-                <input type="submit" value="Tambah Data" class="text-white btn bg-primary">
-            </form>
-        </div>
-
-        <table class="table table-striped ">
+        <table class="table table-borderless datatable bg-white">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -39,27 +16,66 @@
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
-            
+
             <tbody>
-                @php
-                    $i=1;
-                @endphp
-                @foreach ($surat as $s)
+                @php $i=1; @endphp @foreach ($admin as $a)
                 <tr class="align-middle">
                     <th scope="row">{{ $i++; }}</th>
-                    <td>{{$s->dokumen}}</td>
-                    <td>{{substr(strip_tags($s->deskripsi), 0, 200)}} {{ strlen(strip_tags($s->deskripsi)) > 50 ? "..." : "" }}</td>
-                    <td><a target="_blank" href="{{$s->url_download}}" class="btn bg-primary text-white">Download</a></td>
+                    <td>{{$a->dokumen}}</td>
+                    <td>{{$a->deskripsi}}</td>
+                    <td> <a target="_blank" href="{{$a->url_download}}" class="btn btn-primary"> <i class="bi bi-download"></i> </a> </td>
                     <td>
-                        <a class="btn bg-primary text-white"
-                            href="{{ url("dashboard/administrasi/edit/$s->id") }}">Edit</a>
+                        <a class="btn bg-warning text-white" href="{{ url('dashboard/administrasi/edit/' . $a->id) }}"><i
+                                class="bi bi-pencil-fill"></i></a>
                         <a class="btn btn-danger text-white"
-                            href="{{ url("dashboard/administrasi/delete/$s->id") }}">Hapus</a>
+                            onclick="return confirm('Apakah anda yakin akan menghapus data tersebut?')"
+                            href="{{ url('dashboard/administrasi/delete/' . $a->id) }}"><i class="bi bi-trash-fill"></i></a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <hr />
+        <div class="card p-4">
+            <div class="row">
+                <div class="pagetitle">
+                    <h1>Tambah Data Adminsitrasi</h1>
+                </div>
+                <form action="/dashboard/administrasi" method="post" enctype="multipart/form-data" class="needs-validation"
+                    id="pariwisata">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Dokumen</label>
+                        <input type="text" name="nama" id="nama" placeholder="Surat Perceraian..."
+                            class="@error('nama') is-invalid @enderror form-control form-group" required />
+                        @error('nama')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="url_download" class="form-label">Alamat</label>
+                        <input type="text" name="url_download" id="url_download"
+                            placeholder="https://drive.google.com/file/d/1n08KsuVMBK...."
+                            class="form-control form-group @error('url_download') is-invalid @enderror" required />
+                        @error('alamat')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label">Deksripsi</label>
+                <textarea class="form-control form-group @error('deskripsi') is-invalid @enderror" name="deskripsi"
+                    id="deskripsi" cols="30" rows="10" placeholder="Surat yang digunakan untuk pengajuan perceraian...."
+                    required></textarea>
+                @error('deskripsi')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <input type="hidden" name="slug" value="" id="slug">
+            <input type="submit" value="Tambah Data" class="text-white btn bg-primary" />
+            </form>
+        </div>
+        </div>
     </section>
 </main>
 @endsection

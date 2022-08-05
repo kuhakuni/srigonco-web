@@ -17,7 +17,7 @@ class AdministrasiController extends Controller
     {
         $admin = Administrasi::all();
         return view("pages.admin.administrasi", [
-            "surat" => $admin,
+            "admin" => $admin,
             "route" => "administrasi",
         ]);
     }
@@ -40,15 +40,20 @@ class AdministrasiController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            "nama" => "required",
+            "url_download" => "required"
+        ]);
         try {
             //code...
             Administrasi::create([
-                "dokumen" => $request->judul,
-                "url_download" => $request->link_download,
+                "dokumen" => $validatedData["nama"],
+                "url_download" => $validatedData["url_download"],
                 "deskripsi" => $request->deskripsi,
             ]);
             Alert::success("Sukses!", "Data Berhasil Ditambahkan");
         } catch (\Throwable $th) {
+            // dd($th);
             Alert::error("Error!", "Data Gagal Ditambahkan");
         }
         return redirect()->back();
@@ -60,9 +65,9 @@ class AdministrasiController extends Controller
      * @param  \App\Models\Administrasi  $administrasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrasi $administrasi)
+    public function show(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -71,9 +76,14 @@ class AdministrasiController extends Controller
      * @param  \App\Models\Administrasi  $administrasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Administrasi $administrasi)
+    public function edit($id)
     {
-        //
+        $administrasi = Administrasi::where('id', $id)->first();
+        // dd($administrasi);
+        return view('pages.admin.edit.edit-administrasi', [
+            'route' => 'administrasi',
+            'a' => $administrasi,
+        ]);
     }
 
     /**
@@ -83,9 +93,26 @@ class AdministrasiController extends Controller
      * @param  \App\Models\Administrasi  $administrasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrasi $administrasi)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            //code...
+            $validatedData = $request->validate([
+                "nama" => "required",
+                "url_download" => "required"
+            ]);
+            
+            $administrasi = Administrasi::where('id', $id)->first();
+            $administrasi->dokumen = $validatedData["nama"];
+            $administrasi->url_download = $validatedData["url_download"];
+            $administrasi->deskripsi = $request->deskripsi;
+            $administrasi->update();
+            Alert::success("Sukses!", "Data Berhasil Diubah");
+        } catch (\Throwable $th) {
+            //throw $th;
+            Alert::error("Error!", "Data Gagal Dihapus");
+        }
+        return redirect('/dashboard/administrasi');
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\UMKM;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UmkmController extends Controller
 {
@@ -42,7 +43,7 @@ class UmkmController extends Controller
             $gambar = $validatedData["gambar"];
             $ext = $gambar->extension();
             $image_name = "umkm-" . time() . "." . $ext;
-            $gambar->storeAs("public/img-pariwisata/", $image_name);
+            $gambar->storeAs("public/img-umkm/", $image_name);
         } else {
             $image_name = "template.jpg";
         }
@@ -59,8 +60,8 @@ class UmkmController extends Controller
             ]);
             Alert::success("Sukses!", "Data Berhasil Ditambahkan");
         } catch (\Throwable $th) {
-            dd($th);
-            // Alert::error("Error", "Terjadi Kesalahan");
+            // dd($th);
+            Alert::error("Error", "Terjadi Kesalahan");
         }
 
         // dd($request->isi);
@@ -89,9 +90,13 @@ class UmkmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $umkm = UMKM::where("slug", $slug)->first();
+        return view('pages.admin.edit.edit-umkm', [
+            'route' => 'umkm',
+            'umkm' => $umkm,
+        ]);
     }
 
     /**
@@ -101,9 +106,33 @@ class UmkmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $validatedData = $request->validate([
+            "nama" => "required",
+            "alamat" => "required",
+            "gambar" => "image|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
+        ]);
+        $umkm = UMKM::where("slug", $slug)->first();
+        if ($request->file("gambar") != null) {
+            $gblama = $umkm->image;
+            Storage::delete("public/img-umkm/" . $gblama);
+            $ext = $request->file("gambar")->extension();
+            $name = "umkm-" . time() . "." . $ext;
+            $request->file("gambar")->storeAs("public/img-umkm/", $name);
+            $umkm->image = $name;
+        }
+        $umkm->nama = $validatedData["nama"];
+        $umkm->deskripsi = $request->deskripsi;
+        $umkm->slug = Str::slug($validatedData["nama"]);
+        $umkm->alamat = $validatedData["alamat"];
+        $umkm->url_gmaps = $request->url_gmaps;
+        $umkm->no_telp = $request->no_telp;
+        $umkm->url_ecommerce = $request->url_ecommerce;
+        $umkm->update();
+
+        Alert::success("Sukses!", "Data Berhasil Diubah!");
+        return redirect("/dashboard/umkm");
     }
 
     /**
@@ -112,8 +141,17 @@ class UmkmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($slug)
+    { {
+            $umkm = UMKM::where("slug", $slug)->first();
+            $filename = $umkm->image;
+            // dd($filename);
+            $umkm->delete();
+            if ($filename !== "template.jpg") {
+                Storage::delete("public/img-umkm/" . $filename);
+            }
+            Alert::success("Sukses!", "Data Berhasil Dihapus");
+            return redirect()->back();
+        }
     }
 }

@@ -21,7 +21,7 @@
                     <p> {{ $a->deskripsi }} </p>
                 </div>
                 <div class="col-lg-4 col-12 d-flex flex-column align-items-end">
-                    <p><em>Update terakhir : {{ $a->updated_at }}</em></p>
+                    <p><em>Update terakhir : {{ date('d F Y',strtotime($a->updated_at)) }}</em></p>
                     <a class="fw-bold rounded-3 bg-primary ps-2 text-decoration-none" href="{{ $a->url_download }}" target="_blank">Unduh <img
                         class="ic-down p-2 rounded-3" src="{{ asset('img/ic_download.svg') }}" alt=""></a>
                     </div>
