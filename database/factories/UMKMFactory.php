@@ -24,6 +24,7 @@ class UMKMFactory extends Factory
             "slug" => $slug,
             "alamat" => $this->faker->address(),
             "no_telp" => $this->faker->phoneNumber(),
+            "image" => "template.jpg",
             "deskripsi" => $this->faker->text(),
         ];
     }
