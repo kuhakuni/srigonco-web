@@ -30,7 +30,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="file" class="form-label">File Dokumen</label>
+                    <label for="file" class="form-label">File Dokumen <span class="text-muted">(max. 2 MB)</span></label>
                     <input type="file" name="file" id="file" class="form-control form-group" />
                     @error('file')
                     <div class="invalid-feedback">{{ $message }}</div>

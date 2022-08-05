@@ -6,13 +6,28 @@
     <!-- End Page Title -->
 
     <section class="section">
+        @if($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <p class="fw-bold">Error</p>
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+        </div>
+        @endif
         <table class="table table-borderless datatable bg-white">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Alamat</th>
-                    <th scope="col">No Telepon</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -23,7 +38,6 @@
                     <th scope="row">{{ $i++; }}</th>
                     <td>{{$u->nama}}</td>
                     <td>{{$u->alamat}}</td>
-                    <td>{{$u->no_telp}}</td>
                     <td>
                         <a class="btn bg-warning text-white" href="{{ url('dashboard/umkm/edit/' . $u->slug) }}"><i
                                 class="bi bi-pencil-fill"></i></a>

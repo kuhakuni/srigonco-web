@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Administrasi;
 use App\Models\KritikSaran;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -35,11 +36,29 @@ class MainController extends Controller
     }
     public function administrasi()
     {
-        $administrasi = Administrasi::all();
+        $administrasi_image = DB::query()
+            ->select("*")
+            ->from("administrasi")
+            ->where("file", "like", "%.jpg")
+            ->orWhere("file", "like", "%.png")
+            ->orWhere("file", "like", "%.jpeg")
+            ->orderBy("created_at")
+            ->get();
+        $administrasi_dokumen = DB::query()
+            ->select("*")
+            ->from("administrasi")
+            ->where("file", "like", "%.pdf")
+            ->orWhere("file", "like", "%.doc")
+            ->orWhere("file", "like", "%.docx")
+            ->orWhere("file", "like", "%.xls")
+            ->orWhere("file", "like", "%.xlsx")
+            ->orderBy("created_at")
+            ->get();
         return view("pages.web.administrasi", [
             "route" => "administrasi",
             "title" => "Administrasi | Portal Srigonco",
-            "administrasi" => $administrasi,
+            "administrasi_image" => $administrasi_image,
+            "administrasi_dokumen" => $administrasi_dokumen,
         ]);
     }
     public function feedback()

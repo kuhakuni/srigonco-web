@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Administrasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -18,20 +19,11 @@ class AdministrasiController extends Controller
     public function index()
     {
         $admin = Administrasi::all();
+
         return view("pages.admin.administrasi", [
             "admin" => $admin,
             "route" => "administrasi",
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -42,19 +34,18 @@ class AdministrasiController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            "nama" => "required",
+            "file" =>
+                "required|file|mimes:jpeg,png,jpg,pdf,doc,docx,xls,xlsx|max:2048",
+        ]);
+        if (isset($validatedData["file"])) {
+            $file = $validatedData["file"];
+            $ext = $file->extension();
+            $name = Str::slug($validatedData["nama"]) . "." . $ext;
+            $file->storeAs("public/dokumen-administrasi/", $name);
+        }
         try {
-            // dd($request->file);
-            $validatedData = $request->validate([
-                "nama" => "required",
-                "file" => "required"
-            ]);
-            //code...
-            if (isset($validatedData['file'])) {
-                $file = $validatedData['file'];
-                $ext = $file->extension();
-                $name = Str::slug($validatedData['nama']) . "." . $ext;
-                $file->storeAs("public/dokumen-administrasi/", $name);
-            }
             Administrasi::create([
                 "nama" => $validatedData["nama"],
                 "file" => $name,
@@ -62,8 +53,7 @@ class AdministrasiController extends Controller
             ]);
             Alert::success("Sukses!", "Data Berhasil Ditambahkan");
         } catch (\Throwable $th) {
-            dd($th);
-            // Alert::error("Error!", "Data Gagal Ditambahkan");
+            Alert::error("Error!", "Data Gagal Ditambahkan");
         }
         return redirect()->back();
     }
@@ -74,8 +64,10 @@ class AdministrasiController extends Controller
      * @param  \App\Models\Administrasi  $administrasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($slug)
     {
+        $path = public_path("storage/dokumen-administrasi/" . $slug);
+        return response()->file($path);
     }
 
     /**
@@ -86,11 +78,11 @@ class AdministrasiController extends Controller
      */
     public function edit($id)
     {
-        $administrasi = Administrasi::where('id', $id)->first();
+        $administrasi = Administrasi::where("id", $id)->first();
         // dd($administrasi);
-        return view('pages.admin.edit.edit-administrasi', [
-            'route' => 'administrasi',
-            'a' => $administrasi,
+        return view("pages.admin.edit.edit-administrasi", [
+            "route" => "administrasi",
+            "a" => $administrasi,
         ]);
     }
 
@@ -107,15 +99,17 @@ class AdministrasiController extends Controller
             //code...
             $validatedData = $request->validate([
                 "nama" => "required",
-                "file" => ""
+                "file" => "",
             ]);
-            $administrasi = Administrasi::where('id', $id)->first();
+            $administrasi = Administrasi::where("id", $id)->first();
             if ($request->file("file") != null) {
                 $oldname = $administrasi->file;
                 Storage::delete("public/dokumen-administrasi/" . $oldname);
                 $ext = $request->file("file")->extension();
-                $name = Str::slug($validatedData['nama']) . "." . $ext;
-                $request->file("file")->storeAs("public/dokumen-administrasi/", $name);
+                $name = Str::slug($validatedData["nama"]) . "." . $ext;
+                $request
+                    ->file("file")
+                    ->storeAs("public/dokumen-administrasi/", $name);
                 $administrasi->file = $name;
             }
             $administrasi->nama = $validatedData["nama"];
@@ -126,7 +120,7 @@ class AdministrasiController extends Controller
             //throw $th;
             Alert::error("Error!", "Data Gagal Dihapus");
         }
-        return redirect('/dashboard/administrasi');
+        return redirect("/dashboard/administrasi");
     }
 
     /**
@@ -151,13 +145,11 @@ class AdministrasiController extends Controller
 
     public function download($slug)
     {
-        $path = Storage::disk('public')->path("dokumen-administrasi/" . $slug);
-        $content = file_get_contents($path);
-
+        $path = public_path("storage/dokumen-administrasi/" . $slug);
         $headers = [
-            'Content-Description' => 'File Transfer',
-            'Content-Type' => 'application/pdf',
+            "Content-Description" => "File Transfer",
+            "Content-Type" => "application/pdf",
         ];
-        return response($content)->withHeaders($headers);
+        return response()->download($path, $slug, $headers);
     }
 }
