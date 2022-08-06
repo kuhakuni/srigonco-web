@@ -142,7 +142,7 @@
 											data-gallery="myGallery"
 											href="img/pariwisata-4.jpg"
 										>
-											<h4>Pantai Regent</h4>
+											<h4>Makam Syekh Abdul Jalil</h4>
 										</a>
 									</div>
 								</div>
@@ -170,7 +170,7 @@
 				<div class="carousel-inner">
                     @php $i=1; @endphp
                     @foreach ($umkm as $u)
-                <div class="carousel-item @if($i===1)active @endif">
+                <div class="carousel-item @if($i === 1)active @endif">
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<img
