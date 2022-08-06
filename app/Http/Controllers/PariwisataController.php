@@ -107,7 +107,9 @@ class PariwisataController extends Controller
         $pariwisata = Pariwisata::where("slug", $slug)->first();
         if ($request->file("gambar") != null) {
             $gblama = $pariwisata->image;
-            Storage::delete("public/img-pariwisata/" . $gblama);
+            if ($gblama !== "template.jpg") {
+                Storage::delete("public/img-pariwisata/" . $gblama);
+            }
             $ext = $request->file("gambar")->extension();
             $name = "pariwisata-" . time() . "." . $ext;
             $request->file("gambar")->storeAs("public/img-pariwisata/", $name);

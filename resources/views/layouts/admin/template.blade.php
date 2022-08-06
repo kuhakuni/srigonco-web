@@ -8,8 +8,10 @@
     <title>Admin | Portal Srigonco</title>
 
     <!-- Favicons -->
-    <link href="{{ asset('img/favicon.png') }}" rel="icon" />
-    <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/icon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/icon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/icon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('img/icon/site.webmanifest') }}">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect" />
@@ -66,7 +68,7 @@
 
 
 
-            dozcument.querySelezctor("input[name='isi']").value = quill.root.innerHTML;
+            document.querySelector("input[name='isi']").value = quill.root.innerHTML;
         });
     </script>
     @if(isset($edit) && !empty($berita))
