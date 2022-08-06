@@ -169,7 +169,9 @@ class BeritaController extends Controller
         $berita = Berita::where("slug", $slug)->first();
         if ($request->file("gambar") != null) {
             $gblama = $berita->image;
-            Storage::delete("public/img-berita/" . $gblama);
+            if ($gblama !== "template.jpg") {
+                Storage::delete("public/img-berita/" . $gblama);
+            }
             $ext = $request->file("gambar")->extension();
             $name = "berita-" . time() . "." . $ext;
             $request->file("gambar")->storeAs("public/img-berita/", $name);

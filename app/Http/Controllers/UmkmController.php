@@ -45,7 +45,7 @@ class UmkmController extends Controller
             $image_name = "umkm-" . time() . "." . $ext;
             $gambar->storeAs("public/img-umkm/", $image_name);
         } else {
-            $image_name = "template.jpg";
+            $image_name = "template.png";
         }
         try {
             UMKM::create([
@@ -93,9 +93,9 @@ class UmkmController extends Controller
     public function edit($slug)
     {
         $umkm = UMKM::where("slug", $slug)->first();
-        return view('pages.admin.edit.edit-umkm', [
-            'route' => 'umkm',
-            'umkm' => $umkm,
+        return view("pages.admin.edit.edit-umkm", [
+            "route" => "umkm",
+            "umkm" => $umkm,
         ]);
     }
 
@@ -116,7 +116,9 @@ class UmkmController extends Controller
         $umkm = UMKM::where("slug", $slug)->first();
         if ($request->file("gambar") != null) {
             $gblama = $umkm->image;
-            Storage::delete("public/img-umkm/" . $gblama);
+            if ($gblama !== "template.png") {
+                Storage::delete("public/img-umkm/" . $gblama);
+            }
             $ext = $request->file("gambar")->extension();
             $name = "umkm-" . time() . "." . $ext;
             $request->file("gambar")->storeAs("public/img-umkm/", $name);
@@ -142,16 +144,15 @@ class UmkmController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($slug)
-    { {
-            $umkm = UMKM::where("slug", $slug)->first();
-            $filename = $umkm->image;
-            // dd($filename);
-            $umkm->delete();
-            if ($filename !== "template.jpg") {
-                Storage::delete("public/img-umkm/" . $filename);
-            }
-            Alert::success("Sukses!", "Data Berhasil Dihapus");
-            return redirect()->back();
+    {
+        $umkm = UMKM::where("slug", $slug)->first();
+        $filename = $umkm->image;
+        // dd($filename);
+        $umkm->delete();
+        if ($filename !== "template.jpg") {
+            Storage::delete("public/img-umkm/" . $filename);
         }
+        Alert::success("Sukses!", "Data Berhasil Dihapus");
+        return redirect()->back();
     }
 }

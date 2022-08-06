@@ -68,7 +68,7 @@
 
 
 
-            dozcument.querySelezctor("input[name='isi']").value = quill.root.innerHTML;
+            document.querySelector("input[name='isi']").value = quill.root.innerHTML;
         });
     </script>
     @if(isset($edit) && !empty($berita))
