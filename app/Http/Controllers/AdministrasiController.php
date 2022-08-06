@@ -99,7 +99,7 @@ class AdministrasiController extends Controller
             //code...
             $validatedData = $request->validate([
                 "nama" => "required",
-                "file" => "",
+                "file" => "file|mimes:jpeg,png,jpg,pdf,doc,docx,xls,xlsx|max:2048",
             ]);
             $administrasi = Administrasi::where("id", $id)->first();
             if ($request->file("file") != null) {
@@ -111,14 +111,21 @@ class AdministrasiController extends Controller
                     ->file("file")
                     ->storeAs("public/dokumen-administrasi/", $name);
                 $administrasi->file = $name;
+            } else{
+                $str = explode(".", $administrasi->file);
+                $ext = $str[1];
+                $name = Str::slug($request->nama);
+                $name = "$name.$ext";
+                Storage::move("public/dokumen-administrasi/". $administrasi->file,"public/dokumen-administrasi/" . $name);
+                $administrasi->file = $name;
             }
             $administrasi->nama = $validatedData["nama"];
             $administrasi->deskripsi = $request->deskripsi;
             $administrasi->update();
             Alert::success("Sukses!", "Data Berhasil Diubah");
         } catch (\Throwable $th) {
-            //throw $th;
-            Alert::error("Error!", "Data Gagal Dihapus");
+            throw $th;
+            // Alert::error("Error!", "Data Gagal Diubah");
         }
         return redirect("/dashboard/administrasi");
     }
