@@ -8,6 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\PariwisataController;
 use App\Http\Controllers\UmkmController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,4 +131,7 @@ Route::get("/dokumen/download/{slug}", [
     "download",
 ]); //DOWNLOAD DOKUMEN
 Route::get("/dokumen/{slug}", [AdministrasiController::class, "show"]); //SHOW DOKUMEN
+Route::get("/foo", function () {
+    Artisan::call("storage:link");
+});
 // ============================== MAIN ROUTE ==========================
