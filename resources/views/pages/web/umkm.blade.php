@@ -29,7 +29,7 @@
 						<h3 class="card-title text-black m-0">
 							{{ $u->nama }}
 						</h3>
-							<a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Link marketplace"
+							<a href="{{ $u->url_ecommerce }}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Link marketplace"
 								><i class="bi bi-cart fs-2 text-black"></i></a>
 					</div>
 					<p>

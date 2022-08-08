@@ -27,6 +27,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">No. Telp</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Aksi</th>
                 </tr>
@@ -37,6 +38,7 @@
                 <tr class="align-middle">
                     <th scope="row">{{ $i++; }}</th>
                     <td>{{$u->nama}}</td>
+                    <td>{{$u->no_telp}}</td>
                     <td>{{$u->alamat}}</td>
                     <td>
                         <a class="btn bg-warning text-white" href="{{ url('dashboard/umkm/edit/' . $u->slug) }}"><i
