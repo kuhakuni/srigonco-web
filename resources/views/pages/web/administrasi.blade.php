@@ -11,9 +11,9 @@
                 desa pada tahun anggaran 2022.
             </p>
             <div class="row mt-5 flex-column flex-lg-row flex-column-reverse">
-                @foreach ($administrasi_image as $item)
                 <div class="col-md-4">
-                    <div class="col-12 mb-4">
+                @foreach ($administrasi_image as $item)
+                    <div class="col-12 my-4">
                         <img
                             class="w-100 h-100"
                             src="{{ asset('storage/dokumen-administrasi/'. $item->file) }}"
@@ -35,8 +35,9 @@
                         >Unduh <i class="bi bi-download"></i
                     ></a>
                     </div>
-                </div>
+                    <hr>
                 @endforeach
+                </div>
                 @foreach ($administrasi_dokumen as $a)
                 <div class="col-md-8">
                     <hr class="mt-0 mb-3" />

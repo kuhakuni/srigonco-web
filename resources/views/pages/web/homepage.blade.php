@@ -51,6 +51,45 @@
 			</div>
 		</div>
 	</section>
+    <section class="berita">
+		<div class="container">
+			<div class="d-flex justify-content-between align-items-center">
+				<h1 class="fw-bold">Berita Srigonco</h1>
+				<a href="{{ url('/berita') }}" class="news">Selengkapnya </a>
+			</div>
+			<div class="row">
+            @foreach ($latest_news as $news)
+				<div class="col-md-4 card-container">
+					<div class="card" style="width: 18rem">
+						<div class="aspect-ratio">
+                            <img
+                                src="{{ asset('storage/img-berita/'. $news->image) }}"
+                                class="card-img-top"
+                                alt="Missing Berita pic"
+						    />
+                        </div>
+						<div class="card-body">
+							<a
+								href='{{ url("/berita/kategori/". $news->kategori->slug) }}'
+								class="badge bg-secondary text-black mb-2"
+								>{{ $news->kategori->kategori }}</a
+							>
+							<h5 class="card-title">{{ $news->judul }}</h5>
+							<p class="card-text news-content">
+								{!!  \Illuminate\Support\Str::limit($news->isi_berita, 100, $end='...') !!}
+							</p>
+							<a
+								href="{{ url('/berita/'. $news->slug) }}"
+								class="btn btn-primary more-news"
+								>Selengkapnya</a
+							>
+						</div>
+					</div>
+				</div>
+				@endforeach
+			</div>
+		</div>
+	</section>
 	<section class="pariwisata">
 		<div class="text-center mb-5">
 			<h1 class="fw-bold">Tempat Terbaik untuk Dikunjungi</h1>
@@ -151,7 +190,7 @@
 					</div>
 				</div>
 				<div
-					class="col-12 mt-5 d-flex justify-content-center align-items-center"
+					class="col-12 mt-2 d-flex justify-content-center align-items-center"
 				>
 					<a href="{{ url('/pariwisata') }}" class="btn mx-auto"
 						>Selengkapnya</a
@@ -174,7 +213,7 @@
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<img
-									src="{{ Storage::url('public/img-umkm/' . $u->image) }}"
+									src="{{ asset('storage/img-umkm/'. $u->image) }}"
 									class="d-block w-100 img-carousel"
 									alt="Missing UMKM Pic"
 								/>
@@ -223,42 +262,6 @@
 			</div>
 		</div>
 	</section>
-	<section class="berita">
-		<div class="container">
-			<div class="d-flex justify-content-between align-items-center">
-				<h1 class="fw-bold">Berita Srigonco</h1>
-				<a href="{{ url('/berita') }}" class="news">Selengkapnya > </a>
-			</div>
-			<div class="row">
-            @foreach ($latest_news as $news)
-				<div class="col-md-4 card-container">
-					<div class="card" style="width: 18rem">
-						<img
-							src="{{asset('storage/img-berita/'.$news->image)}}"
-							class="card-img-top"
-							alt="Missing Berita pic"
-						/>
-						<div class="card-body">
-							<a
-								href='{{ url("/berita/kategori/". $news->kategori->slug) }}'
-								class="badge bg-secondary text-black mb-2"
-								>{{ $news->kategori->kategori }}</a
-							>
-							<h5 class="card-title">{{ $news->judul }}</h5>
-							<p class="card-text news-content">
-								{!!  \Illuminate\Support\Str::limit($news->isi_berita, 150, $end='...') !!}
-							</p>
-							<a
-								href="{{ url('/berita/'. $news->slug) }}"
-								class="btn btn-primary more-news"
-								>Selengkapnya</a
-							>
-						</div>
-					</div>
-				</div>
-				@endforeach
-			</div>
-		</div>
-	</section>
+	
 </main>
 @endsection

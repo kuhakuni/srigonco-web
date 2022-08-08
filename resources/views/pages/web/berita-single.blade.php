@@ -3,7 +3,7 @@
 <main id="main">
 	<!-- ======= Blog Single Section ======= -->
 	<section id="blog" class="blog pt-5">
-		<div class="container" data-aos="fade-up">
+		<div class="container">
 			<div class="row">
 				@if (!$berita->isEmpty()) 
                 @foreach ($berita as $news)
@@ -26,6 +26,10 @@
 									{{ date('d F
 									Y',strtotime($news->updated_at)) }}
 								</li>
+								<li class="d-flex align-items-center">
+									<i class="bi bi-tags"></i>
+									{{ $news->kategori->kategori }}
+								</li>
 							</ul>
 						</div>
 
@@ -39,23 +43,6 @@
 
 				<div class="col-lg-4">
 					<div class="sidebar">
-						<!-- End sidebar search formn-->
-						<h3 class="sidebar-title">Kategori</h3>
-						<div class="sidebar-item categories">
-							<ul>
-								@foreach ($categories as $category)
-								<li>
-									<a
-										href="{{ url('berita/kategori/'. $category->slug) }}"
-									>
-										{{ $category->kategori }}
-									</a>
-								</li>
-								@endforeach
-							</ul>
-						</div>
-						<!-- End sidebar categories-->
-
 						<h3 class="sidebar-title">Berita Terbaru</h3>
                         <hr>
 						<div class="sidebar-item recent-posts">
@@ -75,6 +62,23 @@
                             <hr>
                             @endforeach
 						</div>
+                        <!-- End sidebar search formn-->
+						<h3 class="sidebar-title">Kategori</h3>
+						<div class="sidebar-item categories">
+							<ul>
+								@foreach ($categories as $category)
+								<li>
+									<a
+										href="{{ url('berita/kategori/'. $category->slug) }}"
+									>
+										{{ $category->kategori }}
+									</a>
+								</li>
+								@endforeach
+							</ul>
+						</div>
+						<!-- End sidebar categories-->
+
 						<!-- End sidebar recent posts-->
 					</div>
 					<!-- End sidebar -->

@@ -73,15 +73,15 @@
 					Jl. Bale Kambang No.17, Dusun Krajan, Desa Srigonco,
 					Kecamatan Bantur, Kabupaten Malang 65179
 				</p>
-                <p><i class="bi bi-telephone-fill pe-2"></i> : 0341</p>
+                <p><i class="bi bi-telephone-fill pe-2"></i> : 081217434900 </p>
                 <p><i class="bi bi-envelope-fill pe-2"></i> : pemerintahdesasrigonco@gmail.com</p>
 				<h6 class="mt-4 mb-2 font-semibold text-center">
 					Sosial Media
 				</h6>
 				<div class="d-flex justify-content-evenly sosmed">
-					<a href="#" target="_blank"> <i class="bi bi-facebook"></i></a>
+					<a href="https://www.facebook.com/profile.php?id=100080228667345" target="_blank"> <i class="bi bi-facebook"></i></a>
 					<a href="https://instagram.com/pemdes.srigonco" target="_blank"> <i class="bi bi-instagram"></i></a>
-					<a href="#" target="_blank"> <i class="bi bi-twitter"></i></a>
+					<a href="https://twitter.com/CenterSrigonco" target="_blank"> <i class="bi bi-twitter"></i></a>
 				</div>
 			</div>
 		</div>
