@@ -26,7 +26,7 @@
     <link href="{{asset('css/app.css') }}" rel="stylesheet" />
 </head>
 
-<body class="toggle-sidebar">
+<body>
     @auth
     @include('components.header')
     @include('components.sidebar')

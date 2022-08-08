@@ -23,8 +23,8 @@ a:hover {
     color: inherit;
 }
 section {
-    padding: 3rem 0;
-}
+    padding: 2rem 0;
+    scroll-margin-top: 60px;}
 img {
     max-width: 100%;
     height: auto;
@@ -91,8 +91,8 @@ img {
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background: url("https://res.cloudinary.com/kuhakuni/image/upload/v1659544872/ttu8sxmfn814umct66lw.png")
-        no-repeat center center;
+    box-shadow: inset 0 0 0 2000px rgb(0 0 0 / 20%);
+    background: url("../img/bg-hero.jpg") no-repeat center center;
     background-size: cover;
 }
 .hero .col-md-6 > * {
@@ -143,8 +143,7 @@ img {
     .about .row {
         flex-direction: column-reverse;
     }
-    .about .row > *,
-    .pariwisata .col-md-6 {
+    .about .row > * {
         margin: 1rem 0;
     }
     .img-map {
@@ -194,12 +193,12 @@ img {
     align-items: stretch;
     margin: 25px 0;
 }
-.news-content {
+/* .news-content {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
+} */
 @media (max-width: 992px) {
     .img-kades {
         margin-bottom: 3rem;
@@ -475,9 +474,14 @@ img {
 
 .blog .sidebar {
     padding: 30px;
-    margin: 0 0 60px 20px;
+    margin-top: 2rem;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+}
+@media (min-width: 768px) {
+    .blog .sidebar {
+        margin: 0 0 60px 20px;
+    }
 }
 
 .blog .sidebar .sidebar-title {
@@ -637,9 +641,6 @@ footer .bi {
     font-size: calc(1.3rem + 0.6vw);
     color: var(--color-primary);
     transition: color ease-in-out 0.2s;
-}
-.sosmed a:hover {
-    color: var(--hover-color-primary);
 }
 
 .header-img {

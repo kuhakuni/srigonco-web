@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -8,7 +7,6 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <!-- Primary Meta Tags -->
-    <title>Portal Srigonco</title>
     <meta name="title" content="Portal Srigonco">
     <meta name="robots" content="index, follow" />
     <meta name="description" content="Portal Srigonco menyediakan informasi mengenai UMKM, Pariwisata serta Profil di Desa Srigonco, Kecamatan Bantur, Kabupaten Malang, Jawa Timur. ">
@@ -27,7 +25,6 @@
     <meta property="twitter:title" content="Portal Srigonco">
     <meta property="twitter:description" content="Portal Srigonco menyediakan informasi mengenai UMKM, Pariwisata serta Profil di Desa Srigonco, Kecamatan Bantur, Kabupaten Malang, Jawa Timur. ">
     <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
-
     <title>{{ isset($title) ? $title : "Portal Srigonco" }}</title>
     
     <!-- Favicons -->
