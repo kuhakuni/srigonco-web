@@ -53,6 +53,7 @@
 
  <!-- Template Main JS File -->
  <script src="{{ asset("js/app.js") }}"></script>
+ {{-- <script src="{{ asset("js/modal.js") }}"></script> --}}
  @include('sweetalert::alert')
 </body>
 

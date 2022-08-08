@@ -100,4 +100,19 @@
             false
         );
     });
+
+    
+    // window.addEventListener('load',(e) => {
+    //     console.log("test");
+    //     const modal = document.getElementById('modal'); 
+    //     // modal.modal("show")
+    // })
+
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        document.getElementById('btn-modal').click();
+    }, false)
+
 })();
+
+
