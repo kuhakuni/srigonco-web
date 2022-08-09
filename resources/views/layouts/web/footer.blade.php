@@ -1,5 +1,5 @@
 <!-- ===== FOOTER ===== -->
-<footer class="p-4">
+<footer class="p-2">
 	<div class="container">
 		<h4 class="fw-semibold text-black py-2">KRITIK DAN SARAN</h4>
 		<form class="row g-3 needs-validation" method="post" action="{{ url('/feedback') }}" novalidate>
@@ -84,6 +84,9 @@
 					<a href="https://twitter.com/CenterSrigonco" target="_blank"> <i class="bi bi-twitter"></i></a>
 				</div>
 			</div>
+            <div class="col-12 text-center mt-3">
+                <p>&copy; KKN FILKOM UB 2022</p>
+            </div>
 		</div>
 	</div>
 </footer>

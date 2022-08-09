@@ -1,8 +1,8 @@
 @extends('layouts.web.template')
 @section('main')
 <main>
-        <div class="header-img p-4 d-flex flex-column justify-content-center"
-            style="background: rgba(0, 0, 0, 0.5) url('{{asset('img/pantai.jpg')}}'); bakcground-fit: cover; background-position: center center;">
+        <div class="header-img header-pariwisata p-4 d-flex flex-column justify-content-center"
+            style="">
             <div class="container">
                 <h1 class="mt-4">PARIWISATA SRIGONCO</h1>
                 <h2>SEMANGAT!</h2>

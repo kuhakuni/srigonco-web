@@ -90,7 +90,7 @@
             </div>
             <h3 class="text-center fw-bold">Seputar Desa Srigonco</h3>
             <div class="my-4 row d-flex justify-content-center">
-                <div class="col-md-4 col-12 my-2">
+                <div class="col-md-4 col-12 my-2 d-flex justify-content-center align-items-center">
                     <div class="ratio ratio-16x9">
                         <iframe
                             class="rounded-3"
@@ -99,7 +99,7 @@
                         </iframe>
                     </div>
                 </div>
-                <div class="col-md-4 col-12 my-2">
+                <div class="col-md-4 col-12 my-2 d-flex justify-content-center align-items-center">
                     <div class="ratio ratio-16x9">
                         <iframe
                             class="rounded-3"
@@ -108,7 +108,7 @@
                         </iframe>
                     </div>
                 </div>
-                <div class="col-md-4 col-12 my-2">
+                <div class="col-md-4 col-12 my-2 d-flex justify-content-center align-items-center">
                     <div class="ratio ratio-16x9">
                         <iframe
                             class="rounded-3"

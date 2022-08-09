@@ -10,11 +10,11 @@
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal fade modal-news" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">HOT NEWS</h5>
+                    <h5 class="modal-title text-center" id="exampleModalLabel" class="fw-bold">Berita Terbaru</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
@@ -55,10 +55,6 @@
 
                     {{-- END OF CAROUSEL --}}
                 </div>
-                {{-- <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> --}}
             </div>
         </div>
     </div>
@@ -120,14 +116,16 @@
                 @foreach ($latest_news as $news)
                 <div class="col-md-4 card-container">
                     <div class="card" style="width: 18rem">
-                        <img src="{{asset('storage/img-berita/'.$news->image)}}" class="card-img-top"
+                        <div class="aspect-ratio">
+                            <img src="{{asset('storage/img-berita/'.$news->image)}}" class="card-img-top"
                             alt="Missing Berita pic" />
+                        </div>
                         <div class="card-body">
                             <a href='{{ url("/berita/kategori/". $news->kategori->slug) }}'
                                 class="badge bg-secondary text-black mb-2">{{ $news->kategori->kategori }}</a>
                             <h5 class="card-title">{{ $news->judul }}</h5>
                             <p class="card-text news-content">
-                                {!! \Illuminate\Support\Str::limit($news->isi_berita, 150, $end='...') !!}
+                                {!! \Illuminate\Support\Str::limit($news->isi_berita, 100, $end='...') !!}
                             </p>
                             <a href="{{ url('/berita/'. $news->slug) }}"
                                 class="btn btn-primary more-news">Selengkapnya</a>
