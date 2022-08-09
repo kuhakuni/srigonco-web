@@ -58,7 +58,7 @@
                     <h1>Tambah UMKM</h1>
                 </div>
                 <form action="/dashboard/umkm" method="post" enctype="multipart/form-data"
-                    class="needs-validation" id="pariwisata">
+                    class="needs-validation" id="umkm">
                     @csrf
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama UMKM</label>
@@ -69,7 +69,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="gambar" class="form-label">Foto Pariwisata <span class="text-muted">(Max. 2
+                        <label for="gambar" class="form-label">Foto UMKM <span class="text-muted">(Max. 2
                                 MB)</span></label>
                         <input type="file" name="gambar" id="gambar"
                             class="@error('gambar') is-invalid @enderror form-control form-group" />
